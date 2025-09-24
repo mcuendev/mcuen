@@ -8,7 +8,7 @@ const nextConfig: NextConfig = {
     remotePatterns: [
       {
         protocol: "https",
-        hostname: CONVEX_HOSTNAME || "utmost-shrimp-301.convex.cloud",
+        hostname: CONVEX_HOSTNAME || "",
         pathname: "/api/storage/**",
       },
     ],
