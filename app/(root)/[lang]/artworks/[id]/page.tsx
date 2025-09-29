@@ -1,19 +1,19 @@
-"use client";
-
 import { api } from "@/convex/_generated/api";
 import { Id } from "@/convex/_generated/dataModel";
-import { useQuery } from "convex/react";
+import { fetchQuery } from "convex/nextjs";
 import Image from "next/image";
-import { usePathname } from "next/navigation";
+import { notFound } from "next/navigation";
 
-const ArtworkPage = () => {
-  const pathname = usePathname();
-  const id = pathname.split("/")[2];
-  const artwork = useQuery(api.artworks.queries.getArtwork, {
-    id: id as Id<"artworks">,
-  });
+interface ArtworkPageProps {
+  params: {
+    id: Id<"artworks">;
+  };
+}
 
-  if (!artwork) return null;
+const ArtworkPage = async ({ params: { id } }: ArtworkPageProps) => {
+  const artwork = await fetchQuery(api.artworks.queries.getArtwork, { id });
+
+  if (!artwork) notFound();
 
   return (
     <div>

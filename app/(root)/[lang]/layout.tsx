@@ -1,0 +1,66 @@
+import { SupportedLanguage, supportedLanguages } from "@/translations/intl";
+import Navbar from "@/components/layout/Navbar/Navbar";
+import { getKindeServerSession } from "@kinde-oss/kinde-auth-nextjs/server";
+import { notFound } from "next/navigation";
+import type React from "react";
+
+/* =========================
+    Interfaces y Tipos
+   ========================= */
+
+interface LayoutParams {
+  lang: SupportedLanguage;
+}
+
+interface LocaleLayoutProps {
+  children: React.ReactNode;
+  params: Promise<LayoutParams>;
+}
+
+interface GenerateMetadataProps {
+  params: Promise<LayoutParams>;
+}
+
+interface MetadataResult {
+  htmlLang: string;
+}
+
+/* =========================
+    generateMetadata
+   ========================= */
+
+export async function generateMetadata({
+  params,
+}: GenerateMetadataProps): Promise<MetadataResult> {
+  const { lang } = await params;
+  return {
+    htmlLang: lang,
+  };
+}
+
+/* =========================
+    Layout Component
+   ========================= */
+
+const LocaleLayout = async ({ children, params }: LocaleLayoutProps) => {
+  const { lang } = await params;
+
+  if (!supportedLanguages.includes(lang)) {
+    notFound();
+  }
+
+  // Obtener usuario autenticado
+  const { getUser } = getKindeServerSession();
+  const user = await getUser();
+
+  return (
+    <>
+      <Navbar isAuthenticated={!!user} lang={lang} />
+      <main className="flex-1 pt-21 container mx-auto p-4 md:px-10">
+        {children}
+      </main>
+    </>
+  );
+};
+
+export default LocaleLayout;

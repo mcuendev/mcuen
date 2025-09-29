@@ -6,25 +6,49 @@ import {
   DropdownMenuItem,
   DropdownMenuTrigger,
 } from "@/components/ui/dropdown-menu";
-import { useLanguage } from "@/context/language-context";
-import { supportedLanguages, languageNames } from "@/translations/intl";
+import {
+  supportedLanguages,
+  languageNames,
+  SupportedLanguage,
+} from "@/translations/intl";
 import Image from "next/image";
+import { usePathname, useRouter } from "next/navigation";
 
-const LanguageSelector = () => {
-  const { language, setLanguage } = useLanguage();
+interface Props {
+  currentLang: SupportedLanguage;
+}
+
+const LanguageSelector = ({ currentLang }: Props) => {
+  const router = useRouter();
+  const pathname = usePathname();
+
+  const handleLanguageChange = (newLang: SupportedLanguage) => {
+    const segments = pathname.split("/");
+    segments[1] = newLang;
+    router.push(segments.join("/"));
+  };
 
   return (
     <DropdownMenu>
       <DropdownMenuTrigger asChild>
-        <Button variant="secondary" size="icon">
-          <Languages className="h-4 w-4" />
+        <Button variant={"secondary"} size={"icon"}>
+          <Languages className="w-4 h-4" />
         </Button>
+        {/* <Button variant="secondary" size="icon">
+          <Image
+            src={`/icons/flags/${currentLang}.svg`}
+            alt={`${languageNames[currentLang]} flag`}
+            width={24}
+            height={24}
+            className="rounded-full"
+          />
+        </Button> */}
       </DropdownMenuTrigger>
       <DropdownMenuContent align="end">
         {supportedLanguages.map((lang) => (
           <DropdownMenuItem
             key={lang}
-            onClick={() => setLanguage(lang)}
+            onClick={() => handleLanguageChange(lang)}
             className="flex items-center gap-2"
           >
             <Image
@@ -34,7 +58,7 @@ const LanguageSelector = () => {
               height={16}
               className="rounded-full"
             />
-            <span className={language === lang ? "font-medium" : ""}>
+            <span className={currentLang === lang ? "font-medium" : ""}>
               {languageNames[lang]}
             </span>
           </DropdownMenuItem>
