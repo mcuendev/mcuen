@@ -2,7 +2,7 @@ import {
   BlockQuoteTypo,
   H2Typo,
 } from "@/components/typography/TypographyComponents";
-import { getTranslations, SupportedLanguage } from "@/translations/intl";
+import { getTranslations, SupportedLanguage } from "@/translations";
 
 interface ReviewsProps {
   params: {

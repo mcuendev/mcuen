@@ -4,7 +4,7 @@ import {
   LargeTypo,
   LeadTypo,
 } from "@/components/typography/TypographyComponents";
-import { getTranslations, SupportedLanguage } from "@/translations/intl";
+import { getTranslations, SupportedLanguage } from "@/translations";
 
 interface ContactProps {
   params: { lang: SupportedLanguage };

@@ -3,7 +3,7 @@ import {
   H3Typo,
   ListTypo,
 } from "@/components/typography/TypographyComponents";
-import { getTranslations, SupportedLanguage } from "@/translations/intl";
+import { getTranslations, SupportedLanguage } from "@/translations";
 
 interface CareerProps {
   params: { lang: SupportedLanguage };

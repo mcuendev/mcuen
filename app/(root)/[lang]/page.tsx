@@ -3,7 +3,7 @@ import {
   H3Typo,
   LeadTypo,
 } from "@/components/typography/TypographyComponents";
-import { getTranslations, SupportedLanguage } from "@/translations/intl";
+import { getTranslations, SupportedLanguage } from "@/translations";
 
 interface HomeProps {
   params: Promise<{ lang: SupportedLanguage }>;

@@ -1,4 +1,4 @@
-import { SupportedLanguage, supportedLanguages } from "@/translations/intl";
+import { SupportedLanguage, supportedLanguages } from "@/translations";
 import Navbar from "@/components/layout/Navbar/Navbar";
 import { getKindeServerSession } from "@kinde-oss/kinde-auth-nextjs/server";
 import { notFound } from "next/navigation";

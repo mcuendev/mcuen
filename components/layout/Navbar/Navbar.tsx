@@ -6,7 +6,7 @@ import Link from "next/link";
 import { Button } from "../../ui/button";
 import { LoginLink, LogoutLink } from "@kinde-oss/kinde-auth-nextjs";
 import LanguageSelector from "./components/LanguageSelector";
-import { getTranslations, SupportedLanguage } from "@/translations/intl";
+import { getTranslations, SupportedLanguage } from "@/translations";
 import { HTMLAttributes } from "react";
 
 interface NavbarProps extends HTMLAttributes<HTMLElement> {

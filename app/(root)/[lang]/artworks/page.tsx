@@ -4,7 +4,7 @@ import {
   LeadTypo,
 } from "@/components/typography/TypographyComponents";
 import { api } from "@/convex/_generated/api";
-import { getTranslations, SupportedLanguage } from "@/translations/intl";
+import { getTranslations, SupportedLanguage } from "@/translations";
 import { fetchQuery } from "convex/nextjs";
 
 interface ArtworksPageProps {

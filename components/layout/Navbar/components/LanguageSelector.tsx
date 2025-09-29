@@ -10,7 +10,7 @@ import {
   supportedLanguages,
   languageNames,
   SupportedLanguage,
-} from "@/translations/intl";
+} from "@/translations";
 import Image from "next/image";
 import { usePathname, useRouter } from "next/navigation";
 

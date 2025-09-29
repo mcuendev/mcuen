@@ -1,7 +1,7 @@
-import { supportedLanguages } from "@/translations/intl";
+// /config/site.ts
+import { SupportedLanguage, supportedLanguages } from "@/translations";
 
-// Rutas base sin idioma
-const basePublicPaths = [
+export const basePublicPaths = [
   "/",
   "/environments",
   "/artworks",
@@ -10,18 +10,24 @@ const basePublicPaths = [
   "/contact",
 ] as const;
 
-// Tipo para las rutas base
 export type BaseRoute = (typeof basePublicPaths)[number];
 
 export const siteConfig = {
   name: "Monica Cuén",
   description:
     "Artista versátil especializada en obras adaptables y personalizadas para espacios únicos. Con exposiciones internacionales y reconocida en prestigiosas revistas de arte y diseño.",
+
   basePublicPaths,
-  // Generamos las rutas con los idiomas
-  publicPaths: basePublicPaths.flatMap((path) =>
-    supportedLanguages.map((lang) => `/${lang}${path}`),
-  ),
-  // Función helper para generar rutas localizadas
-  getLocalizedPath: (path: BaseRoute, lang: string) => `/${lang}${path}`,
+
+  getLocalizedPath: (path: BaseRoute, lang: SupportedLanguage) =>
+    path === "/" ? `/${lang}` : `/${lang}${path}`,
+
+  getAllLocalizedPublicPaths: (): string[] =>
+    basePublicPaths.flatMap((path) =>
+      supportedLanguages.map((lang) =>
+        path === "/" ? `/${lang}` : `/${lang}${path}`,
+      ),
+    ),
+
+  supportedLanguages,
 };
