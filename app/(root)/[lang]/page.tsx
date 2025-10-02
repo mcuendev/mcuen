@@ -10,7 +10,7 @@ import {
 } from "@/lib/ssg";
 import { getTranslations } from "@/translations";
 
-export const dyanmic = "force-static";
+export const dynamic = "force-static";
 export const generateStaticParams = makeGenerateStaticParamsForLanguages();
 
 type HomeProps = PageParams<LangParams>;
