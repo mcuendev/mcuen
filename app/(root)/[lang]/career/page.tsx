@@ -10,6 +10,7 @@ import {
 } from "@/lib/ssg";
 import { getTranslations } from "@/translations";
 
+export const dyanmic = "force-static";
 export const generateStaticParams = makeGenerateStaticParamsForLanguages();
 
 type CareerProps = PageParams<LangParams>;

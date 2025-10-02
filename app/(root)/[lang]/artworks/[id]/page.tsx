@@ -4,6 +4,7 @@ import { notFound } from "next/navigation";
 import { getArtworkById, generateStaticParams } from "./data";
 import { PageParams } from "@/lib/ssg";
 
+export const dynamic = "force-static";
 export { generateStaticParams };
 export const revalidate = 604800; // Weekly
 
