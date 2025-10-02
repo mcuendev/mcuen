@@ -99,7 +99,7 @@ export const BlockQuoteTypo = ({
       )}
       {...props}
     >
-      <p className="border-l-2 pl-6 text-lg italic leading-relaxed">
+      <p className="border-l-2 pl-6 text-lg font-serif italic leading-relaxed">
         “{children}”
       </p>
 
