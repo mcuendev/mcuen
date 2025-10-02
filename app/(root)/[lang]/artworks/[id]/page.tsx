@@ -1,17 +1,17 @@
-import { api } from "@/convex/_generated/api";
 import { Id } from "@/convex/_generated/dataModel";
-import { fetchQuery } from "convex/nextjs";
 import Image from "next/image";
 import { notFound } from "next/navigation";
+import { getArtworkById, generateStaticParams } from "./data";
+import { PageParams } from "@/lib/ssg";
 
-interface ArtworkPageProps {
-  params: {
-    id: Id<"artworks">;
-  };
-}
+export { generateStaticParams };
+export const revalidate = 604800; // Weekly
 
-const ArtworkPage = async ({ params: { id } }: ArtworkPageProps) => {
-  const artwork = await fetchQuery(api.artworks.queries.getArtwork, { id });
+type ArtworkPageProps = PageParams<{ id: Id<"artworks"> }>;
+
+const ArtworkPage = async ({ params }: ArtworkPageProps) => {
+  const { id } = await params;
+  const artwork = await getArtworkById(id);
 
   if (!artwork) notFound();
 

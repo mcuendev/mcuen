@@ -2,32 +2,36 @@ import { withAuth } from "@kinde-oss/kinde-auth-nextjs/middleware";
 import { NextRequest, NextResponse } from "next/server";
 import { siteConfig } from "./config/site";
 
-// Solo usamos Kinde para la autenticación
-export default withAuth(
-  async function middleware(request: NextRequest) {
-    const { pathname } = request.nextUrl;
+const kindeMiddleware = withAuth(() => NextResponse.next(), {
+  publicPaths: ["/", ...siteConfig.getAllLocalizedPublicPaths()],
+}) as unknown as (req: NextRequest) => Promise<NextResponse>;
 
-    // Si es una ruta privada, dejarla pasar (Kinde se encargará de la autenticación)
-    if (pathname.startsWith("/private")) {
-      return NextResponse.next();
-    }
+export function middleware(req: NextRequest) {
+  // redirige la raíz siempre (antes de delegar en Kinde)
+  if (req.nextUrl.pathname === "/") {
+    return NextResponse.redirect(new URL("/ca", req.url));
+  }
 
-    return NextResponse.next();
-  },
-  {
-    publicPaths: siteConfig.publicPaths,
-  },
-);
+  // delega en el middleware de Kinde (typed como función)
+  return kindeMiddleware(req);
+}
 
 export const config = {
   matcher: [
     /*
      * Match all request paths except for:
-     * - api (API routes)
-     * - _next/static (static files)
-     * - _next/image (image optimization files)
-     * - favicon.ico (favicon file)
+     * - _next (Next.js internals)
+     * - Static files:
+     *   - html, htm
+     *   - css
+     *   - js (but not json)
+     *   - jpg, jpeg, webp, png, gif, svg
+     *   - ttf, woff, woff2
+     *   - ico
+     *   - csv, doc, docx, xls, xlsx
+     *   - zip
+     *   - webmanifest
      */
-    "/((?!api|_next/static|_next/image|favicon.ico).*)",
+    "/((?!_next|[^?]*\\.(?:html?|css|js(?!on)|jpe?g|webp|png|gif|svg|ttf|woff2?|ico|csv|docx?|xlsx?|zip|webmanifest)).*)",
   ],
 };

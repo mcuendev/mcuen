@@ -3,11 +3,16 @@ import {
   H3Typo,
   LeadTypo,
 } from "@/components/typography/TypographyComponents";
-import { getTranslations, SupportedLanguage } from "@/translations";
+import {
+  LangParams,
+  makeGenerateStaticParamsForLanguages,
+  PageParams,
+} from "@/lib/ssg";
+import { getTranslations } from "@/translations";
 
-interface HomeProps {
-  params: Promise<{ lang: SupportedLanguage }>;
-}
+export const generateStaticParams = makeGenerateStaticParamsForLanguages();
+
+type HomeProps = PageParams<LangParams>;
 
 const Home = async ({ params }: HomeProps) => {
   const { lang } = await params;

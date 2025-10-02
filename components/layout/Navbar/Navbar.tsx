@@ -38,6 +38,7 @@ const Navbar = ({ isAuthenticated, lang }: NavbarProps) => {
           return (
             <Button
               key={item.type === "translated" ? item.titleKey : item.title}
+              className="font-serif"
               variant="ghost"
               asChild
             >

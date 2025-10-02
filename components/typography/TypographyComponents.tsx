@@ -40,7 +40,7 @@ export type H3TypoProps = HTMLAttributes<HTMLHeadingElement>;
 export const H3Typo = ({ className, children, ...props }: H3TypoProps) => (
   <h3
     className={cn(
-      "mt-8 mb-4 scroll-m-20 text-2xl font-semibold tracking-tight",
+      "font-serif mt-8 mb-4 scroll-m-20 text-2xl font-semibold tracking-tight",
       className,
     )}
     {...props}

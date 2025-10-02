@@ -3,13 +3,19 @@ import {
   H3Typo,
   ListTypo,
 } from "@/components/typography/TypographyComponents";
-import { getTranslations, SupportedLanguage } from "@/translations";
+import {
+  LangParams,
+  makeGenerateStaticParamsForLanguages,
+  PageParams,
+} from "@/lib/ssg";
+import { getTranslations } from "@/translations";
 
-interface CareerProps {
-  params: { lang: SupportedLanguage };
-}
+export const generateStaticParams = makeGenerateStaticParamsForLanguages();
 
-const Career = ({ params: { lang } }: CareerProps) => {
+type CareerProps = PageParams<LangParams>;
+
+const Career = async ({ params }: CareerProps) => {
+  const { lang } = await params;
   const t = getTranslations(lang);
   return (
     <div className="flex flex-col space-y-4">

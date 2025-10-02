@@ -4,19 +4,22 @@ import {
   LeadTypo,
 } from "@/components/typography/TypographyComponents";
 import { api } from "@/convex/_generated/api";
-import { getTranslations, SupportedLanguage } from "@/translations";
+import {
+  LangParams,
+  makeGenerateStaticParamsForLanguages,
+  PageParams,
+} from "@/lib/ssg";
+import { getTranslations } from "@/translations";
 import { fetchQuery } from "convex/nextjs";
 
-interface ArtworksPageProps {
-  params: { lang: SupportedLanguage };
-}
+export const dynamic = "force-static";
+export const generateStaticParams = makeGenerateStaticParamsForLanguages();
+export const revalidate = 604800;
 
-// import ArtworkList from "@/components/artworks/ArtworkList";
-// import { api } from "@/convex/_generated/api";
-// import { useQuery } from "convex/react";
+type ArtworksPageProps = PageParams<LangParams>;
 
-const ArtworksPage = async ({ params: { lang } }: ArtworksPageProps) => {
-  // const artworks = useQuery(api.artworks.queries.listArtworks) ?? [];
+const ArtworksPage = async ({ params }: ArtworksPageProps) => {
+  const { lang } = await params;
   const t = getTranslations(lang);
   const artworks = await fetchQuery(api.artworks.queries.listArtworks);
 

@@ -2,15 +2,19 @@ import {
   BlockQuoteTypo,
   H2Typo,
 } from "@/components/typography/TypographyComponents";
-import { getTranslations, SupportedLanguage } from "@/translations";
+import {
+  LangParams,
+  makeGenerateStaticParamsForLanguages,
+  PageParams,
+} from "@/lib/ssg";
+import { getTranslations } from "@/translations";
 
-interface ReviewsProps {
-  params: {
-    lang: SupportedLanguage;
-  };
-}
+export const generateStaticParams = makeGenerateStaticParamsForLanguages();
 
-const Reviews = ({ params: { lang } }: ReviewsProps) => {
+type ReviewsProps = PageParams<LangParams>;
+
+const Reviews = async ({ params }: ReviewsProps) => {
+  const { lang } = await params;
   const t = getTranslations(lang);
   return (
     <div>

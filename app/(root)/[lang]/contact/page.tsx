@@ -4,13 +4,19 @@ import {
   LargeTypo,
   LeadTypo,
 } from "@/components/typography/TypographyComponents";
-import { getTranslations, SupportedLanguage } from "@/translations";
+import {
+  LangParams,
+  makeGenerateStaticParamsForLanguages,
+  PageParams,
+} from "@/lib/ssg";
+import { getTranslations } from "@/translations";
 
-interface ContactProps {
-  params: { lang: SupportedLanguage };
-}
+export const generateStaticParams = makeGenerateStaticParamsForLanguages();
 
-const Contact = ({ params: { lang } }: ContactProps) => {
+type ContactProps = PageParams<LangParams>;
+
+const Contact = async ({ params }: ContactProps) => {
+  const { lang } = await params;
   const t = getTranslations(lang);
 
   return (
