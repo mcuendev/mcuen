@@ -9,9 +9,10 @@ import { SmallTypo } from "../typography/TypographyComponents";
 interface ArtworkCardProps {
   artwork: ArtworkDocumentWithImage;
   lang: SupportedLanguage;
+  priority?: boolean;
 }
 
-const ArtworkCard = ({ artwork, lang }: ArtworkCardProps) => {
+const ArtworkCard = ({ priority, artwork, lang }: ArtworkCardProps) => {
   const linkHref = `/${lang}/artworks/${artwork._id}`;
 
   return (
@@ -24,6 +25,7 @@ const ArtworkCard = ({ artwork, lang }: ArtworkCardProps) => {
             fill
             className="object-cover transition-transform duration-300 group-hover:scale-105"
             sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 25vw"
+            priority={priority}
           />
         </div>
       </Link>

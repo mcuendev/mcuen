@@ -33,8 +33,13 @@ const ArtworkGrid = ({ lang, artworks, className }: ArtworkGridProps) => {
   }
   return (
     <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 2xl:grid-cols-4 gap-6">
-      {artworks.map((artwork) => (
-        <ArtworkCard key={artwork._id} artwork={artwork} lang={lang} />
+      {artworks.map((artwork, i) => (
+        <ArtworkCard
+          key={artwork._id}
+          artwork={artwork}
+          lang={lang}
+          priority={i < 8}
+        />
       ))}
     </div>
   );
