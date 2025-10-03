@@ -1,6 +1,6 @@
-import { Translation } from "../index";
+import { BusinessTranslation } from "@/translations/types";
 
-export const ca: Translation = {
+export const ca: BusinessTranslation = {
   welcome: {
     title: "Benvinguda",
     subtitle: "Benvingut/da al taller de la Mónica Cuén",

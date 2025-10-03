@@ -1,4 +1,5 @@
-import { supportedLanguages, SupportedLanguage } from "@/translations";
+import { supportedLanguages } from "@/translations";
+import { SupportedLanguage } from "@/translations/types";
 
 /**
  * Generic page params wrapper type.
@@ -48,3 +49,86 @@ export function makeGenerateStaticParamsFromProvider<
     });
   };
 }
+
+// type GenMetaParams<P extends Record<string, string>> = {
+//   params: P;
+// };
+
+// /**
+//  * makeGenerateMetadataFromTranslations
+//  *
+//  * Crea una función `generateMetadata` para pages/layouts de Next que:
+//  * - carga las traducciones vía `getTranslations(lang)`
+//  * - llama a `mapper(t, params)` para obtener overrides específicos
+//  * - garantiza un title/description por defecto desde las traducciones
+//  * - construye alternates.languages con las rutas base por idioma ("/ca", "/es", "/en")
+//  *
+//  * mapper puede devolver cualquier parte de Metadata y será mergeado con los defaults.
+//  */
+// export function makeGenerateMetadataFromTranslations<
+//   P extends { lang: SupportedLanguage } = { lang: SupportedLanguage },
+// >(
+//   mapper: (
+//     t: AppTranslation,
+//     params?: P,
+//   ) => Partial<Metadata> | Promise<Partial<Metadata>>,
+// ) {
+//   return async function generateMetadata(
+//     ctx: GenMetaParams<P>,
+//   ): Promise<Metadata> {
+//     const lang = (ctx?.params?.lang ?? defaultLanguage) as SupportedLanguage;
+//     const t = getTranslations(lang);
+
+//     const overrides = (await mapper(t, ctx.params as P)) ?? {};
+
+//     // Defaults sencillos: title/description tomados desde las traducciones de negocio.
+//     const defaultTitle = t.welcome?.title ?? "";
+//     const defaultDescription = t.welcome?.description ?? "";
+
+//     // Alternates: aquí construimos una mapping simple /<lang> — ajústalo si tu canonical path es distinto
+//     const alternatesLanguages: Record<string, string> =
+//       supportedLanguages.reduce(
+//         (acc, l) => {
+//           acc[l] = `/${l}`;
+//           return acc;
+//         },
+//         {} as Record<string, string>,
+//       );
+
+//     const meta: Metadata = {
+//       title: overrides.title ?? defaultTitle,
+//       description: overrides.description ?? defaultDescription,
+//       alternates: {
+//         languages: alternatesLanguages,
+//       },
+//       // Mergea otros campos devueltos por mapper (openGraph, twitter, manifest, icons, robots, etc.)
+//       ...overrides,
+//     };
+
+//     return meta;
+//   };
+// }
+
+// /* ------------------------
+//     Ejemplo de uso
+//    ------------------------ */
+
+// /*
+//   En una page server component (app/[lang]/page.tsx) puedes hacer:
+
+//   export const generateMetadata = makeGenerateMetadataFromTranslations(({ welcome }) => ({
+//     title: `${welcome.title} — Mónica Cuén`,
+//     description: welcome.description,
+//     openGraph: {
+//       title: `${welcome.title} — Mónica Cuén`,
+//       description: welcome.description,
+//       // ...otros campos OG
+//     },
+//   }));
+
+//   O si necesitas usar params adicionales:
+//   export const generateMetadata = makeGenerateMetadataFromTranslations((t, params) => {
+//     // params.lang ya disponible
+//     return { title: `${t.welcome.title} — ${params.lang}` };
+//   });
+// */

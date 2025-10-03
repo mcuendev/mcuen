@@ -1,5 +1,6 @@
 // /config/site.ts
-import { SupportedLanguage, supportedLanguages } from "@/translations";
+import { supportedLanguages } from "@/translations";
+import { SupportedLanguage } from "@/translations/types";
 
 export const basePublicPaths = [
   "/",

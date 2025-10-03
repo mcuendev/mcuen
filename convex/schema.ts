@@ -8,7 +8,8 @@ import { v } from "convex/values";
 export default defineSchema({
   artworks: defineTable({
     title: v.string(),
-    author: v.string(),
+    description: v.string(),
+    collection: v.string(),
     year: v.number(),
     fileId: v.id("_storage"),
   }),

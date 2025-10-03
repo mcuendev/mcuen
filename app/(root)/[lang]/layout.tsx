@@ -1,8 +1,8 @@
-import { SupportedLanguage, supportedLanguages } from "@/translations";
+import { supportedLanguages } from "@/translations";
 import Navbar from "@/components/layout/Navbar/Navbar";
-import { getKindeServerSession } from "@kinde-oss/kinde-auth-nextjs/server";
 import { notFound } from "next/navigation";
 import type React from "react";
+import { SupportedLanguage } from "@/translations/types";
 
 /* =========================
     Interfaces y Tipos
@@ -49,13 +49,9 @@ const LocaleLayout = async ({ children, params }: LocaleLayoutProps) => {
     notFound();
   }
 
-  // Obtener usuario autenticado
-  const { getUser } = getKindeServerSession();
-  const user = await getUser();
-
   return (
     <>
-      <Navbar isAuthenticated={!!user} lang={lang} />
+      <Navbar lang={lang} />
       <main className="flex-1 pt-21 container mx-auto p-4 md:px-10">
         {children}
       </main>

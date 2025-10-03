@@ -1,6 +1,5 @@
 // /config/nav.ts
-import type { Translation } from "@/translations";
-import type { SupportedLanguage } from "@/translations";
+import { BusinessTranslation, SupportedLanguage } from "@/translations/types";
 import { siteConfig } from "./site";
 
 /* ---------------------------
@@ -10,7 +9,7 @@ import { siteConfig } from "./site";
 /** Item translated using a key from the translation file (server-side) */
 export interface TranslatedNavItem {
   type: "translated";
-  titleKey: keyof Translation;
+  titleKey: keyof BusinessTranslation;
   baseHref: import("./site").BaseRoute;
   showAdmin?: boolean;
 }

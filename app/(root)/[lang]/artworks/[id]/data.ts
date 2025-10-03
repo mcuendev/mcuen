@@ -1,15 +1,21 @@
-import { api } from "@/convex/_generated/api";
-import { fetchQuery } from "convex/nextjs";
-import { Doc, Id } from "@/convex/_generated/dataModel";
-import { SupportedLanguage, supportedLanguages } from "@/translations";
-import { makeGenerateStaticParamsFromProvider } from "@/lib/ssg";
+import { getTranslations, supportedLanguages } from "@/translations";
+import { SupportedLanguage } from "@/translations/types";
+import { makeGenerateStaticParamsFromProvider, PageParams } from "@/lib/ssg";
+import { dataClient } from "@/lib/data-client";
+import { ArtworkDocumentWithImage } from "@/convex/artworks/types";
+import { Id } from "@/convex/_generated/dataModel";
+import { Metadata } from "next";
+
+export type ArtworkDetailPageProps = PageParams<{
+  id: Id<"artworks">;
+  lang: SupportedLanguage;
+}>;
 
 const provider = async () => {
-  const artworks = await fetchQuery(api.artworks.queries.listArtworks);
-  return artworks;
+  return dataClient.getAll();
 };
 
-const mapper = (artwork: Doc<"artworks">) => {
+const mapper = (artwork: ArtworkDocumentWithImage) => {
   const id = String(artwork._id);
   return supportedLanguages.map((lang: SupportedLanguage) => ({
     lang,
@@ -22,5 +28,56 @@ export const generateStaticParams = makeGenerateStaticParamsFromProvider(
   mapper,
 );
 
-export const getArtworkById = async (id: Id<"artworks">) =>
-  await fetchQuery(api.artworks.queries.getArtwork, { id });
+export const generateMetadata = async ({
+  params,
+}: ArtworkDetailPageProps): Promise<Metadata> => {
+  const { id, lang } = await params;
+  const t = getTranslations(lang);
+
+  const artwork = await dataClient.getById(id);
+
+  const siteUrl = process.env.NEXT_PUBLIC_SITE_URL;
+  const path = `/${lang}/artworks/${id}`;
+  const canonical = `${siteUrl}${path}`;
+
+  if (!artwork) {
+    return {
+      title: `${t.ui.common.notFound} | Monica Cuén`,
+      description: t.ui.common.notFound,
+      alternates: {
+        canonical,
+        languages: supportedLanguages.reduce<Record<string, string>>(
+          (acc, l) => {
+            acc[l] = `${siteUrl}/${l}/artworks/${id}`;
+            return acc;
+          },
+          {},
+        ),
+      },
+    };
+  }
+
+  return {
+    title: `${artwork.title} | Monica Cuén`,
+    description: artwork.description.slice(0, 160),
+    alternates: {
+      canonical,
+      languages: supportedLanguages.reduce<Record<string, string>>((acc, l) => {
+        acc[l] = `${siteUrl}/${l}/artworks/${id}`;
+        return acc;
+      }, {}),
+    },
+    openGraph: {
+      title: `${artwork.title} | Monica Cuén`,
+      description: artwork.description.slice(0, 160),
+      url: canonical,
+      images: [{ url: artwork.fileUrl!, alt: artwork.title }],
+    },
+    twitter: {
+      card: "summary_large_image",
+      title: `${artwork.title} | Monica Cuén`,
+      description: artwork.description.slice(0, 160),
+      images: [artwork.fileUrl!],
+    },
+  };
+};

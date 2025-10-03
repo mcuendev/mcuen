@@ -1,0 +1,101 @@
+import { supportedLanguages } from ".";
+
+/* ------------------------
+    Business Translations Types
+   ------------------------ */
+
+export interface BusinessTranslation {
+  welcome: {
+    title: string;
+    subtitle: string;
+    description: string;
+  };
+  environments: {
+    title: string;
+    subtitle: string;
+    description: string;
+    layout: {
+      gallery: string;
+      focus: string;
+    };
+  };
+  artworks: {
+    title: string;
+    subtitle: string;
+    description: string;
+    layout: {
+      gallery: string;
+      adaptable: string;
+    };
+  };
+  career: {
+    title: string;
+    education: {
+      title: string;
+      items: string[];
+    };
+    exhibitions: {
+      title: string;
+      items: string[];
+    };
+  };
+  reviews: {
+    title: string;
+    quotes: Array<{
+      text: string;
+      author: string;
+      source: string;
+    }>;
+  };
+  contact: {
+    title: string;
+    description: string;
+    phone: string;
+    email: string;
+    formNote: string;
+  };
+}
+
+/* ------------------------
+    Ui Translations Types
+   ------------------------ */
+
+export interface UITranslation {
+  artworks: {
+    labels: {
+      collection: string;
+      year: string;
+    };
+    sections: {
+      moreFromCollection: string;
+    };
+  };
+  buttons: {
+    submit: string;
+    cancel: string;
+    close: string;
+    backToGallery: string;
+    contactArtist: string;
+  };
+  common: {
+    loading: string;
+    noResults: string;
+    noResultsDetails: string;
+    notFound: string;
+  };
+  errors: {
+    generic: string;
+    network: string;
+  };
+  forms: {
+    required: string;
+    invalidEmail: string;
+  };
+  pagination: {
+    prev: string;
+    next: string;
+  };
+}
+
+export type AppTranslation = BusinessTranslation & { ui: UITranslation };
+export type SupportedLanguage = (typeof supportedLanguages)[number];

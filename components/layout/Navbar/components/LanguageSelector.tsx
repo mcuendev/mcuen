@@ -6,13 +6,10 @@ import {
   DropdownMenuItem,
   DropdownMenuTrigger,
 } from "@/components/ui/dropdown-menu";
-import {
-  supportedLanguages,
-  languageNames,
-  SupportedLanguage,
-} from "@/translations";
+import { supportedLanguages, languageNames } from "@/translations";
 import Image from "next/image";
 import { usePathname, useRouter } from "next/navigation";
+import { SupportedLanguage } from "@/translations/types";
 
 interface Props {
   currentLang: SupportedLanguage;

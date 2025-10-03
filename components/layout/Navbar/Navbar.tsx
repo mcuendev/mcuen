@@ -4,22 +4,28 @@ import { getLocalizedNavItems } from "@/config/nav";
 import { siteConfig } from "@/config/site";
 import Link from "next/link";
 import { Button } from "../../ui/button";
-import { LoginLink, LogoutLink } from "@kinde-oss/kinde-auth-nextjs";
+import {
+  LoginLink,
+  LogoutLink,
+  useKindeAuth,
+} from "@kinde-oss/kinde-auth-nextjs";
 import LanguageSelector from "./components/LanguageSelector";
-import { getTranslations, SupportedLanguage } from "@/translations";
+import { getTranslations } from "@/translations";
 import { HTMLAttributes } from "react";
+import { SupportedLanguage } from "@/translations/types";
 
 interface NavbarProps extends HTMLAttributes<HTMLElement> {
-  isAuthenticated: boolean;
   lang: SupportedLanguage;
 }
 
-const Navbar = ({ isAuthenticated, lang }: NavbarProps) => {
+const Navbar = ({ lang }: NavbarProps) => {
+  const { isAuthenticated } = useKindeAuth();
+
   const t = getTranslations(lang);
   const localizedNavItems = getLocalizedNavItems(lang);
 
   return (
-    <nav className="fixed w-full flex items-center justify-between gap-6 p-4 md:px-10 border-b bg-white/60 backdrop-blur-sm">
+    <nav className="fixed z-10 w-full flex items-center justify-between gap-6 p-4 md:px-10 border-b bg-background/70 backdrop-blur-lg">
       <h1>
         <Link href={`/${lang}`}>{siteConfig.name}</Link>
       </h1>

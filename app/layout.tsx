@@ -6,8 +6,8 @@ import Footer from "@/components/layout/Footer";
 import { cn } from "@/lib/utils";
 import { siteConfig } from "@/config/site";
 
-const geistSans = Geist({
-  variable: "--font-geist-sans",
+const geist = Geist({
+  variable: "--font-geist",
   subsets: ["latin"],
 });
 
@@ -40,7 +40,7 @@ export default async function RootLayout({
       <html>
         <body
           className={cn(
-            `${geistSans.variable} ${geistMono.variable} ${playfair.variable} antialiased`,
+            `${geist.variable} ${geistMono.variable} ${playfair.variable} antialiased`,
             "min-h-screen flex flex-col",
           )}
         >

@@ -1,58 +1,4 @@
-/* ------------------------
-    Public Types
-   ------------------------ */
-
-export interface Translation {
-  welcome: {
-    title: string;
-    subtitle: string;
-    description: string;
-  };
-  environments: {
-    title: string;
-    subtitle: string;
-    description: string;
-    layout: {
-      gallery: string;
-      focus: string;
-    };
-  };
-  artworks: {
-    title: string;
-    subtitle: string;
-    description: string;
-    layout: {
-      gallery: string;
-      adaptable: string;
-    };
-  };
-  career: {
-    title: string;
-    education: {
-      title: string;
-      items: string[];
-    };
-    exhibitions: {
-      title: string;
-      items: string[];
-    };
-  };
-  reviews: {
-    title: string;
-    quotes: Array<{
-      text: string;
-      author: string;
-      source: string;
-    }>;
-  };
-  contact: {
-    title: string;
-    description: string;
-    phone: string;
-    email: string;
-    formNote: string;
-  };
-}
+import { AppTranslation, SupportedLanguage } from "./types";
 
 /* ------------------------
     Locales import
@@ -66,7 +12,6 @@ import { en } from "./locales/en";
    ------------------------ */
 
 export const supportedLanguages = ["ca", "es", "en"] as const;
-export type SupportedLanguage = (typeof supportedLanguages)[number];
 
 export const defaultLanguage: SupportedLanguage = "ca";
 
@@ -80,7 +25,7 @@ export const languageNames: Record<SupportedLanguage, string> = {
     Translations internal MAP
    ------------------------ */
 
-const TRANSLATIONS: Record<SupportedLanguage, Translation> = {
+const TRANSLATIONS: Record<SupportedLanguage, AppTranslation> = {
   ca,
   es,
   en,
@@ -95,7 +40,7 @@ const TRANSLATIONS: Record<SupportedLanguage, Translation> = {
  * - Safe Type: constrains `lang` to SupportedLanguage.
  * - If language does not exist returns default.
  */
-export const getTranslations = (lang: SupportedLanguage): Translation => {
+export const getTranslations = (lang: SupportedLanguage): AppTranslation => {
   return TRANSLATIONS[lang] ?? TRANSLATIONS[defaultLanguage];
 };
 
