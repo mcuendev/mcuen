@@ -9,8 +9,7 @@ export const es: BusinessTranslation = {
   },
   environments: {
     title: "Ambientes",
-    subtitle:
-      "Explora ambientes cuidadosamente diseñados para revistas de interiorismo, arte y decoración",
+    subtitle: "Explora ambientes diseñados para revistas de arte y decoración",
     description:
       "Cada espacio refleja exclusividad y personalización, adaptándose a las necesidades de cada cliente y proyecto.",
     layout: {
@@ -37,17 +36,50 @@ export const es: BusinessTranslation = {
     education: {
       title: "Formación",
       items: [
-        "Aprendizaje inicial con su abuelo, el pintor Jesús Cuén.",
-        "Formación y técnicas con el escultor Cocomir, experto en el mercado norteamericano.",
-        "Encuentros y colaboraciones con maestros del arte.",
+        {
+          title: "Aprendizaje inicial",
+          description:
+            "Aprendizaje inicial con su abuelo, el pintor Jesús Cuén.",
+        },
+        {
+          title: "Técnicas con Cocomir",
+          description:
+            "Formación y técnicas con el escultor Cocomir, experto en el mercado norteamericano.",
+        },
+        {
+          title: "Colaboraciones artísticas",
+          description: "Encuentros y colaboraciones con maestros del arte.",
+        },
       ],
     },
     exhibitions: {
       title: "Exposiciones y Reconocimientos",
       items: [
-        "Obra itinerante en Andorra y Barcelona desde 2001, con presencia en revistas como Arquitectura y Diseño, Interiores, Mi Casa y El Mueble.",
-        "Participación en exposiciones colectivas y ferias de arte en Andorra, Barcelona, Londres y Tokio.",
-        "Colaboraciones con galerías y proyectos internacionales.",
+        {
+          title: "Trayectoria",
+          description:
+            "Obra itinerante en espacios de Andorra y Barcelona con selecciones periódicas y encargos para montajes y decoración editorial. Presencia en revistas del sector y colaboraciones en proyectos de interiorismo.",
+        },
+        {
+          title: "Ferias y plataformas",
+          description:
+            "Participación en circuitos y plataformas como la Mostra d'Art y ZOOM, con presencia en exposiciones colectivas, centros comerciales y galerías locales.",
+        },
+        {
+          title: "Galerías y colaboraciones",
+          description:
+            "Proyectos expositivos en galerías (incluida Barcelona) y colaboraciones con agentes y publicaciones, incluyendo selecciones y proyectos en Londres y colaboraciones en Tokio.",
+        },
+        {
+          title: "Actos institucionales",
+          description:
+            "Cesión de obra para inauguraciones y actos institucionales de relevancia, con presencia de autoridades y público representativo.",
+        },
+        {
+          title: "Diseño y contract",
+          description:
+            "Encargos a medida para hoteles y suites, participación en proyectos de decoración como Casadecor y trabajos para espacios comerciales e interiores.",
+        },
       ],
     },
   },

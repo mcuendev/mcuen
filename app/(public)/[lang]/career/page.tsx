@@ -1,5 +1,15 @@
 import PageHeader from "@/components/layout/PageHeader";
-import { H3Typo, ListTypo } from "@/components/typography/TypographyComponents";
+import {
+  H2Typo,
+  H3Typo,
+  PTypo,
+} from "@/components/typography/TypographyComponents";
+import {
+  Accordion,
+  AccordionContent,
+  AccordionItem,
+  AccordionTrigger,
+} from "@/components/ui/accordion";
 import {
   LangParams,
   makeGenerateStaticParamsForLanguages,
@@ -16,28 +26,60 @@ const Career = async ({ params }: CareerProps) => {
   const { lang } = await params;
   const t = getTranslations(lang);
   return (
-    <div className="flex flex-col space-y-4">
+    <div className="flex flex-col space-y-12">
       <PageHeader
         title={t.career.subtitle}
         descritpion={t.career.description}
       />
 
-      <section>
-        <H3Typo>{t.career.education.title}</H3Typo>
-        <ListTypo>
+      <section className="mt-4 p-4 bg-card rounded-lg shadow-xl">
+        <H2Typo className="border-0 text-primary">
+          {t.career.education.title}
+        </H2Typo>
+        <Accordion
+          type="single"
+          collapsible
+          className="w-full"
+          defaultValue={t.career.education.items[0].title}
+        >
           {t.career.education.items.map((item) => (
-            <li key={item}>{item}</li>
+            <AccordionItem key={item.title} value={item.title}>
+              <AccordionTrigger>
+                <H3Typo className="my-0">{item.title}</H3Typo>
+              </AccordionTrigger>
+              <AccordionContent>
+                <PTypo className="text-base pl-2 text-pretty">
+                  {item.description}
+                </PTypo>
+              </AccordionContent>
+            </AccordionItem>
           ))}
-        </ListTypo>
+        </Accordion>
       </section>
 
-      <section>
-        <H3Typo>{t.career.exhibitions.title}</H3Typo>
-        <ListTypo>
+      <section className="p-4 bg-card rounded-lg shadow-xl">
+        <H2Typo className="border-0 text-primary">
+          {t.career.exhibitions.title}
+        </H2Typo>
+        <Accordion
+          type="single"
+          collapsible
+          className="w-full"
+          defaultValue={t.career.exhibitions.items[0].title}
+        >
           {t.career.exhibitions.items.map((item) => (
-            <li key={item}>{item}</li>
+            <AccordionItem key={item.title} value={item.title}>
+              <AccordionTrigger>
+                <H3Typo className="my-0">{item.title}</H3Typo>
+              </AccordionTrigger>
+              <AccordionContent>
+                <PTypo className="text-base pl-2 text-pretty">
+                  {item.description}
+                </PTypo>
+              </AccordionContent>
+            </AccordionItem>
           ))}
-        </ListTypo>
+        </Accordion>
       </section>
     </div>
   );

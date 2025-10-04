@@ -34,11 +34,17 @@ export interface BusinessTranslation {
     description: string;
     education: {
       title: string;
-      items: string[];
+      items: {
+        title: string;
+        description: string;
+      }[];
     };
     exhibitions: {
       title: string;
-      items: string[];
+      items: {
+        title: string;
+        description: string;
+      }[];
     };
   };
   reviews: {
@@ -73,6 +79,11 @@ export interface UITranslation {
     };
     sections: {
       moreFromCollection: string;
+    };
+    filters: {
+      ariaSearch: string;
+      search: string;
+      allCollections: string;
     };
   };
   buttons: {

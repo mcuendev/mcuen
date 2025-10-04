@@ -89,7 +89,11 @@ const ArtworkDetailPage = async ({ params }: ArtworkDetailPageProps) => {
                   {t.ui.artworks.labels.collection}
                 </dt>
                 {/* TODO: make it a link to the related collection */}
-                <dd className="text-foreground">{artwork.collection}</dd>
+                <Link
+                  href={`/${lang}/artworks?collection=${artwork.collection}`}
+                >
+                  <dd className="text-foreground">{artwork.collection}</dd>
+                </Link>
               </div>
               {artwork.year && (
                 <div>

@@ -9,6 +9,11 @@ export const ui: UITranslation = {
     sections: {
       moreFromCollection: "Més d'aquesta Col·lecció",
     },
+    filters: {
+      ariaSearch: "Cercar quadres",
+      search: "Cerca per títol, descripció o col·lecció",
+      allCollections: "Totes les col·leccions",
+    },
   },
   buttons: {
     submit: "Enviar",

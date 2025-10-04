@@ -9,8 +9,7 @@ export const en: BusinessTranslation = {
   },
   environments: {
     title: "Environments",
-    subtitle:
-      "Explore carefully designed environments for interior design, art, and decoration magazines",
+    subtitle: "Explore environments designed for art, and decoration magazines",
     description:
       "Each space reflects exclusivity and personalization, adapting to the needs of each client and project.",
     layout: {
@@ -37,17 +36,50 @@ export const en: BusinessTranslation = {
     education: {
       title: "Education",
       items: [
-        "Initial learning with her grandfather, painter Jesús Cuén.",
-        "Training and techniques with sculptor Cocomir, an expert in the North American market.",
-        "Encounters and collaborations with art masters.",
+        {
+          title: "Early learning",
+          description:
+            "Initial learning with her grandfather, painter Jesús Cuén.",
+        },
+        {
+          title: "Training with Cocomir",
+          description:
+            "Training and techniques with sculptor Cocomir, an expert in the North American market.",
+        },
+        {
+          title: "Art collaborations",
+          description: "Encounters and collaborations with art masters.",
+        },
       ],
     },
     exhibitions: {
       title: "Exhibitions and Recognition",
       items: [
-        "Traveling exhibition in Andorra and Barcelona since 2001, featured in magazines such as Arquitectura y Diseño, Interiores, Mi Casa, and El Mueble.",
-        "Participation in collective exhibitions and art fairs in Andorra, Barcelona, London, and Tokyo.",
-        "Collaborations with galleries and international projects.",
+        {
+          title: "Career",
+          description:
+            "Traveling exhibitions across venues in Andorra and Barcelona with regular selections and commissions for editorial displays and interior design projects. Featured in industry magazines and collaborations on design projects.",
+        },
+        {
+          title: "Fairs & platforms",
+          description:
+            "Participation in regional platforms and fairs such as Mostra d'Art and ZOOM, including group shows and presentations in galleries and shopping centres.",
+        },
+        {
+          title: "Galleries & partnerships",
+          description:
+            "Exhibition projects in galleries (including Barcelona) and collaborations with agents and editorial partners, including selections and projects in London and collaborations in Tokyo (e.g., Interculture Art Inc.).",
+        },
+        {
+          title: "Institutional events",
+          description:
+            "Loaned works for inaugurations and institutional events, attracting representative audiences and official attendees.",
+        },
+        {
+          title: "Design & contract",
+          description:
+            "Tailor-made commissions for hotels and suites, selection for interior design events like Casadecor, and projects for commercial interiors.",
+        },
       ],
     },
   },

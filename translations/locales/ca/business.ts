@@ -9,8 +9,7 @@ export const ca: BusinessTranslation = {
   },
   environments: {
     title: "Ambients",
-    subtitle:
-      "Explora ambients acuradament dissenyats per a revistes d'interiorisme, art i decoració",
+    subtitle: "Explora ambients dissenyats per a revistes d'art i decoració",
     description:
       "Cada espai reflecteix exclusivitat i personalització, adaptant-se a les necessitats de cada client i projecte.",
     layout: {
@@ -36,17 +35,50 @@ export const ca: BusinessTranslation = {
     education: {
       title: "Formació",
       items: [
-        "Aprenentatge inicial amb el seu avi, el pintor Jesús Cuén.",
-        "Formació i tècniques amb l'escultor Cocomir, expert en el mercat nord-americà.",
-        "Trobades i col·laboracions amb mestres de l'art.",
+        {
+          title: "Aprenentatge inicial",
+          description:
+            "Aprenentatge inicial amb el seu avi, el pintor Jesús Cuén.",
+        },
+        {
+          title: "Tècniques amb Cocomir",
+          description:
+            "Formació i tècniques amb l'escultor Cocomir, expert en el mercat nord-americà.",
+        },
+        {
+          title: "Col·laboracions artístiques",
+          description: "Trobades i col·laboracions amb mestres de l'art.",
+        },
       ],
     },
     exhibitions: {
       title: "Exposicions i Reconeixements",
       items: [
-        "Obra itinerant a Andorra i Barcelona des de 2001, amb presència a revistes com Arquitectura y Diseño, Interiores, Mi Casa i El Mueble.",
-        "Participació en exposicions col·lectives i fires d'art a Andorra, Barcelona, Londres i Tòquio.",
-        "Col·laboracions amb galeries i projectes internacionals.",
+        {
+          title: "Trajectòria",
+          description:
+            "Obra itinerant en espais d'Andorra i Barcelona amb seleccions periòdiques i encàrrecs per a muntatges i decoració editorial. Presència en revistes especialitzades i col·laboracions amb projectes d'interiorisme.",
+        },
+        {
+          title: "Fires i plataformes",
+          description:
+            "Participació en esdeveniments i plataformes com Mostra d'Art i ZOOM, amb presència en mostres col·lectives i exposicions en galeries i centres comercials.",
+        },
+        {
+          title: "Galeries i projectes",
+          description:
+            "Projectes expositius en galeries (inclosa Barcelona) i col·laboracions amb agents i serveis editorials, incloent seleccions i projectes a Londres i col·laboracions a Tòquio.",
+        },
+        {
+          title: "Actes institucionals",
+          description:
+            "Cessió d'obres per a inauguracions i esdeveniments institucionals, així com exposicions en espais amb presència oficial i pública rellevant.",
+        },
+        {
+          title: "Disseny i contract",
+          description:
+            "Encàrrecs a mida per a hotels, suites i projectes de contract; selecció per a esdeveniments de disseny com Casadecor i treballs per a interiors comercials.",
+        },
       ],
     },
   },

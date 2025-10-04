@@ -9,6 +9,11 @@ export const ui: UITranslation = {
     sections: {
       moreFromCollection: "More from this Collection",
     },
+    filters: {
+      ariaSearch: "Search artworks",
+      search: "Search by title, description, or collection",
+      allCollections: "All collections",
+    },
   },
   buttons: {
     submit: "Submit",
