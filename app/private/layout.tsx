@@ -26,7 +26,7 @@ export default async function PrivateLayout({
   return (
     <UserProvider user={publicUser}>
       <DashboardNavbar />
-      <main className="flex-1 pt-21 container mx-auto p-4 md:px-10">
+      <main className="flex-1 pt-21 pb-10 container mx-auto p-4 md:px-10">
         {children}
       </main>
     </UserProvider>

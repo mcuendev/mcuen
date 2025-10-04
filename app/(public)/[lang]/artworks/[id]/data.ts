@@ -1,7 +1,7 @@
 import { getTranslations, supportedLanguages } from "@/translations";
 import { SupportedLanguage } from "@/translations/types";
 import { makeGenerateStaticParamsFromProvider, PageParams } from "@/lib/ssg";
-import { dataClient } from "@/lib/data-client";
+import { artworkDataClient } from "@/lib/artwork-data-client";
 import { ArtworkDocumentWithImage } from "@/convex/artworks/types";
 import { Id } from "@/convex/_generated/dataModel";
 import { Metadata } from "next";
@@ -12,7 +12,7 @@ export type ArtworkDetailPageProps = PageParams<{
 }>;
 
 const provider = async () => {
-  return dataClient.getAll();
+  return artworkDataClient.getAll();
 };
 
 const mapper = (artwork: ArtworkDocumentWithImage) => {
@@ -34,7 +34,7 @@ export const generateMetadata = async ({
   const { id, lang } = await params;
   const t = getTranslations(lang);
 
-  const artwork = await dataClient.getById(id);
+  const artwork = await artworkDataClient.getById(id);
 
   const siteUrl = process.env.NEXT_PUBLIC_SITE_URL;
   const path = `/${lang}/artworks/${id}`;

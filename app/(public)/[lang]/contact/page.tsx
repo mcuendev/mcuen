@@ -1,6 +1,5 @@
+import PageHeader from "@/components/layout/PageHeader";
 import {
-  H2Typo,
-  H3Typo,
   LargeTypo,
   LeadTypo,
 } from "@/components/typography/TypographyComponents";
@@ -22,9 +21,11 @@ const Contact = async ({ params }: ContactProps) => {
 
   return (
     <div>
-      <H2Typo className="hidden">{t.contact.title}</H2Typo>
+      <PageHeader
+        title={t.contact.subtitle}
+        descritpion={t.contact.description}
+      />
 
-      <H3Typo>{t.contact.description}</H3Typo>
       <LargeTypo>{t.contact.email}</LargeTypo>
       <LargeTypo>{t.contact.phone}</LargeTypo>
       <LeadTypo>{t.contact.formNote}</LeadTypo>

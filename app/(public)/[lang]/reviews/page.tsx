@@ -1,7 +1,5 @@
-import {
-  BlockQuoteTypo,
-  H2Typo,
-} from "@/components/typography/TypographyComponents";
+import PageHeader from "@/components/layout/PageHeader";
+import { BlockQuoteTypo } from "@/components/typography/TypographyComponents";
 import {
   LangParams,
   makeGenerateStaticParamsForLanguages,
@@ -19,7 +17,10 @@ const Reviews = async ({ params }: ReviewsProps) => {
   const t = getTranslations(lang);
   return (
     <div>
-      <H2Typo className="hidden">{t.reviews.title}</H2Typo>
+      <PageHeader
+        title={t.reviews.subtitle}
+        descritpion={t.reviews.description}
+      />
 
       <ul className="flex flex-col space-y-4 items-center">
         {t.reviews.quotes.map((quote) => (

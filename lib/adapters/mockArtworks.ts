@@ -10,6 +10,10 @@ class MockArtworksClient implements ArtworksClient {
     return [...this.artworks];
   }
 
+  async getHightlighted() {
+    return [...this.artworks].slice(0, 6);
+  }
+
   async getById(id: string) {
     return this.artworks.find((artwork) => artwork._id === id) || null;
   }
@@ -68,4 +72,4 @@ class MockArtworksClient implements ArtworksClient {
   }
 }
 
-export const mockAdapter = new MockArtworksClient();
+export const mockArtworkAdapter = new MockArtworksClient();

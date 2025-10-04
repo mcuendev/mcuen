@@ -1,10 +1,6 @@
 import ArtworkGrid from "@/components/artworks/artwork-grid";
-import {
-  H2Typo,
-  H3Typo,
-  LeadTypo,
-} from "@/components/typography/TypographyComponents";
-import { dataClient } from "@/lib/data-client";
+import PageHeader from "@/components/layout/PageHeader";
+import { artworkDataClient } from "@/lib/artwork-data-client";
 import {
   LangParams,
   makeGenerateStaticParamsForLanguages,
@@ -21,15 +17,15 @@ type ArtworksPageProps = PageParams<LangParams>;
 const ArtworksPage = async ({ params }: ArtworksPageProps) => {
   const { lang } = await params;
   const t = getTranslations(lang);
-  const artworks = await dataClient.getAll();
-  // const artworks: ArtworkDocumentWithImage[] = [];
+  const artworks = await artworkDataClient.getAll();
+  // const artworks: ArtworkDocumentWithImage[] = []; // to test empty page
 
   return (
-    <div>
-      <H2Typo className="hidden">{t.artworks.title}</H2Typo>
-
-      <H3Typo>{t.artworks.subtitle}</H3Typo>
-      <LeadTypo>{t.artworks.description}</LeadTypo>
+    <div className="flex flex-col space-y-8">
+      <PageHeader
+        title={t.artworks.subtitle}
+        descritpion={t.artworks.description}
+      />
 
       <ArtworkGrid artworks={artworks} lang={lang} />
     </div>

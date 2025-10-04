@@ -1,8 +1,5 @@
-import {
-  H2Typo,
-  H3Typo,
-  ListTypo,
-} from "@/components/typography/TypographyComponents";
+import PageHeader from "@/components/layout/PageHeader";
+import { H3Typo, ListTypo } from "@/components/typography/TypographyComponents";
 import {
   LangParams,
   makeGenerateStaticParamsForLanguages,
@@ -20,7 +17,10 @@ const Career = async ({ params }: CareerProps) => {
   const t = getTranslations(lang);
   return (
     <div className="flex flex-col space-y-4">
-      <H2Typo className="hidden">{t.career.title}</H2Typo>
+      <PageHeader
+        title={t.career.subtitle}
+        descritpion={t.career.description}
+      />
 
       <section>
         <H3Typo>{t.career.education.title}</H3Typo>

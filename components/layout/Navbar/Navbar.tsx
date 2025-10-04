@@ -26,9 +26,9 @@ const Navbar = ({ lang }: NavbarProps) => {
 
   return (
     <nav className="fixed z-10 w-full flex items-center justify-between gap-6 p-4 md:px-10 border-b bg-background/70 backdrop-blur-lg">
-      <h1>
+      <Button asChild variant={"homeNavLink"}>
         <Link href={`/${lang}`}>{siteConfig.name}</Link>
-      </h1>
+      </Button>
 
       <div className="flex gap-4">
         {localizedNavItems.map((item) => {

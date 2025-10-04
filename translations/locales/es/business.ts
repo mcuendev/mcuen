@@ -31,6 +31,9 @@ export const es: BusinessTranslation = {
   },
   career: {
     title: "Trayectoria",
+    subtitle: "La formación y el reconocimiento de Mónica Cuén",
+    description:
+      "Desde sus primeros años de aprendizaje hasta las exposiciones y el reconocimiento en el ámbito artístico, su trayectoria refleja dedicación, evolución e impacto creativo.",
     education: {
       title: "Formación",
       items: [
@@ -50,6 +53,9 @@ export const es: BusinessTranslation = {
   },
   reviews: {
     title: "Crítica",
+    subtitle: "El reconocimiento de la crítica y de los medios",
+    description:
+      "Revistas especializadas y figuras de referencia han destacado la trayectoria y el carácter único de su obra.",
     quotes: [
       {
         text: "Pintora versátil en su obra, su pintura se adapta a cada ambiente y estilo dando un toque personalísimo e inimitable.",
@@ -75,8 +81,8 @@ export const es: BusinessTranslation = {
   },
   contact: {
     title: "Contacto",
-    description:
-      "¿Quieres saber más o solicitar una obra personalizada? Ponte en contacto:",
+    subtitle: "¿Quieres saber más o solicitar una obra personalizada?",
+    description: "Ponte en contacto",
     phone: "(+34) 645 33 60 66",
     email: "info@monicacuen.com",
     formNote: "Formulario de contacto disponible para consultas y encargos.",

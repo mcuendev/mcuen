@@ -30,6 +30,8 @@ export interface BusinessTranslation {
   };
   career: {
     title: string;
+    subtitle: string;
+    description: string;
     education: {
       title: string;
       items: string[];
@@ -41,6 +43,8 @@ export interface BusinessTranslation {
   };
   reviews: {
     title: string;
+    subtitle: string;
+    description: string;
     quotes: Array<{
       text: string;
       author: string;
@@ -49,6 +53,7 @@ export interface BusinessTranslation {
   };
   contact: {
     title: string;
+    subtitle: string;
     description: string;
     phone: string;
     email: string;
@@ -76,6 +81,9 @@ export interface UITranslation {
     close: string;
     backToGallery: string;
     contactArtist: string;
+    skipLink: string;
+    exploreEnvironments: string;
+    viewArtworks: string;
   };
   common: {
     loading: string;

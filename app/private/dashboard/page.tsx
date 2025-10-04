@@ -1,8 +1,14 @@
+import PageHeader from "@/components/layout/PageHeader";
+
 const DashboardPage = () => {
   return (
     <div>
-      <h1 className="text-4xl font-bold">Dashboard</h1>
-      <p>Gestiona els recursos de la web des d&apos;aquesta secció</p>
+      <PageHeader
+        title={"Dashboard"}
+        descritpion={
+          "Gestiona des d'aquesta secció tots els recursos de la web"
+        }
+      />
     </div>
   );
 };

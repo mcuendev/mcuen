@@ -5,7 +5,7 @@ import {
   generateStaticParams,
   generateMetadata,
 } from "./data";
-import { dataClient } from "@/lib/data-client";
+import { artworkDataClient } from "@/lib/artwork-data-client";
 import { Button } from "@/components/ui/button";
 import Link from "next/link";
 import { ArrowLeft } from "lucide-react";
@@ -21,11 +21,14 @@ export const revalidate = 604800; // Weekly
 const ArtworkDetailPage = async ({ params }: ArtworkDetailPageProps) => {
   const { id, lang } = await params;
   const t = getTranslations(lang);
-  const artwork = await dataClient.getById(id);
+  const artwork = await artworkDataClient.getById(id);
 
   if (!artwork) notFound();
 
-  const relatedArtworks = await dataClient.search("", artwork.collection);
+  const relatedArtworks = await artworkDataClient.search(
+    "",
+    artwork.collection,
+  );
   const filteredRelated = relatedArtworks
     .filter((art) => art._id !== artwork._id)
     .slice(0, 3);

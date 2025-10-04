@@ -16,6 +16,9 @@ export const ui: UITranslation = {
     close: "Tancar",
     backToGallery: "Tornar a la Galeria",
     contactArtist: "Contacta amb la Monica",
+    skipLink: "Salta al contingut",
+    exploreEnvironments: "Explora Ambients",
+    viewArtworks: "Veure Obres",
   },
   common: {
     loading: "Carregant...",

@@ -30,6 +30,9 @@ export const ca: BusinessTranslation = {
   },
   career: {
     title: "Trajectòria",
+    subtitle: "La formació i el reconeixement de Mónica Cuén",
+    description:
+      "Des dels seus inicis d'aprenentatge fins a les exposicions i el reconeixement en l’àmbit artístic, la seva trajectòria reflecteix dedicació, evolució i impacte creatiu.",
     education: {
       title: "Formació",
       items: [
@@ -49,6 +52,9 @@ export const ca: BusinessTranslation = {
   },
   reviews: {
     title: "Crítica",
+    subtitle: "El reconeixement de la crítica i dels mitjans",
+    description:
+      "Revistes especialitzades i figures de referència han destacat la trajectòria i el caràcter únic de la seva obra.",
     quotes: [
       {
         text: "Pintora versàtil en la seva obra, la seva pintura s'adapta a cada ambient i estil donant un toc personalíssim i inimitable.",
@@ -74,8 +80,8 @@ export const ca: BusinessTranslation = {
   },
   contact: {
     title: "Contacte",
-    description:
-      "Vols saber-ne més o sol·licitar una obra personalitzada? Posa't en contacte:",
+    subtitle: "Vols saber-ne més o sol·licitar una obra personalitzada?",
+    description: "Posa't en contacte",
     phone: "(+34) 645 33 60 66",
     email: "info@monicacuen.com",
     formNote: "Formulari de contacte disponible per a consultes i encàrrecs.",

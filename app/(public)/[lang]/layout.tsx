@@ -1,8 +1,9 @@
-import { supportedLanguages } from "@/translations";
+import { getTranslations, supportedLanguages } from "@/translations";
 import Navbar from "@/components/layout/Navbar/Navbar";
 import { notFound } from "next/navigation";
 import type React from "react";
 import { SupportedLanguage } from "@/translations/types";
+import SkipLink from "@/components/layout/SkipLink";
 
 /* =========================
     Interfaces y Tipos
@@ -44,6 +45,7 @@ export async function generateMetadata({
 
 const LocaleLayout = async ({ children, params }: LocaleLayoutProps) => {
   const { lang } = await params;
+  const t = getTranslations(lang);
 
   if (!supportedLanguages.includes(lang)) {
     notFound();
@@ -51,8 +53,12 @@ const LocaleLayout = async ({ children, params }: LocaleLayoutProps) => {
 
   return (
     <>
+      <SkipLink>{t.ui.buttons.skipLink}</SkipLink>
       <Navbar lang={lang} />
-      <main className="flex-1 pt-21 container mx-auto p-4 md:px-10">
+      <main
+        id="main"
+        className="flex-1 pt-21 pb-10 container mx-auto p-4 md:px-10"
+      >
         {children}
       </main>
     </>

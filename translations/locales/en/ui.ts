@@ -16,6 +16,9 @@ export const ui: UITranslation = {
     close: "Close",
     backToGallery: "Back to Gallery",
     contactArtist: "Contact Monica",
+    skipLink: "Skip to content",
+    exploreEnvironments: "Explore Environments",
+    viewArtworks: "View Artworks",
   },
   common: {
     loading: "Loading...",

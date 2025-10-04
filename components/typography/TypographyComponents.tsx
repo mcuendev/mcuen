@@ -14,7 +14,7 @@ export type H1TypoProps = HTMLAttributes<HTMLHeadingElement>;
 export const H1Typo = ({ className, children, ...props }: H1TypoProps) => (
   <h1
     className={cn(
-      "mt-8 mb-6 scroll-m-20 text-center text-4xl font-extrabold tracking-tight text-balance",
+      "font-serif mt-8 mb-6 scroll-m-20 text-4xl font-extrabold tracking-tight text-balance",
       className,
     )}
     {...props}
@@ -27,7 +27,7 @@ export type H2TypoProps = HTMLAttributes<HTMLHeadingElement>;
 export const H2Typo = ({ className, children, ...props }: H2TypoProps) => (
   <h2
     className={cn(
-      "mt-8 mb-4 scroll-m-20 border-b pb-2 text-3xl font-semibold tracking-tight first:mt-0",
+      "font-serif mt-8 mb-4 scroll-m-20 border-b pb-2 text-3xl font-semibold tracking-tight first:mt-0",
       className,
     )}
     {...props}
@@ -53,7 +53,7 @@ export type H4TypoProps = HTMLAttributes<HTMLHeadingElement>;
 export const H4Typo = ({ className, children, ...props }: H4TypoProps) => (
   <h4
     className={cn(
-      "mt-6 mb-4 scroll-m-20 text-xl font-semibold tracking-tight",
+      "font-serif mt-6 mb-4 scroll-m-20 text-xl font-semibold tracking-tight",
       className,
     )}
     {...props}

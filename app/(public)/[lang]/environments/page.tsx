@@ -1,8 +1,4 @@
-import {
-  H2Typo,
-  H3Typo,
-  LeadTypo,
-} from "@/components/typography/TypographyComponents";
+import PageHeader from "@/components/layout/PageHeader";
 import {
   LangParams,
   makeGenerateStaticParamsForLanguages,
@@ -20,10 +16,10 @@ const Environments = async ({ params }: EnvironmentsProps) => {
   const t = getTranslations(lang);
   return (
     <div>
-      <H2Typo className="hidden">{t.environments.title}</H2Typo>
-
-      <H3Typo>{t.environments.subtitle}</H3Typo>
-      <LeadTypo>{t.environments.description}</LeadTypo>
+      <PageHeader
+        title={t.environments.subtitle}
+        descritpion={t.environments.description}
+      />
     </div>
   );
 };

@@ -16,6 +16,9 @@ export const ui: UITranslation = {
     close: "Cerrar",
     backToGallery: "Volver a la Galería",
     contactArtist: "Contacta con Monica",
+    skipLink: "Salta al contenido",
+    exploreEnvironments: "Explora Ambientes",
+    viewArtworks: "Ver Obras",
   },
   common: {
     loading: "Cargando...",

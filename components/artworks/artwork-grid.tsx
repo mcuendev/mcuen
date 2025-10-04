@@ -4,6 +4,7 @@ import { ImageIcon } from "lucide-react";
 import { H4Typo, SmallTypo } from "../typography/TypographyComponents";
 import { SupportedLanguage } from "@/translations/types";
 import { getTranslations } from "@/translations";
+import ArtworkPainting from "./artwork-painting";
 import ArtworkCard from "./artwork-card";
 
 interface ArtworkGridProps {
@@ -32,14 +33,25 @@ const ArtworkGrid = ({ lang, artworks, className }: ArtworkGridProps) => {
     );
   }
   return (
-    <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 2xl:grid-cols-4 gap-6">
+    <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 2xl:grid-cols-4 gap-12">
       {artworks.map((artwork, i) => (
-        <ArtworkCard
-          key={artwork._id}
-          artwork={artwork}
-          lang={lang}
-          priority={i < 8}
-        />
+        <div key={artwork._id}>
+          {/* MOBILE */}
+          <ArtworkCard
+            artwork={artwork}
+            lang={lang}
+            priority={i < 8}
+            className="block lg:hidden"
+          />
+
+          {/* DESKTOP */}
+          <ArtworkPainting
+            artwork={artwork}
+            lang={lang}
+            priority={i < 8}
+            className="hidden lg:block"
+          />
+        </div>
       ))}
     </div>
   );

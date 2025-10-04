@@ -2,6 +2,7 @@ import { ArtworkDocumentWithImage } from "@/convex/artworks/types";
 
 export interface ArtworksClient {
   getAll(): Promise<ArtworkDocumentWithImage[]>;
+  getHightlighted(): Promise<ArtworkDocumentWithImage[]>;
   getById(id: string): Promise<ArtworkDocumentWithImage | null>;
   search(
     query: string,

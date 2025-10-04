@@ -31,6 +31,9 @@ export const en: BusinessTranslation = {
   },
   career: {
     title: "Career",
+    subtitle: "Mónica Cuén’s education and recognition",
+    description:
+      "From her early learning stages to exhibitions and recognition in the art world, her career reflects dedication, evolution, and creative impact.",
     education: {
       title: "Education",
       items: [
@@ -50,6 +53,9 @@ export const en: BusinessTranslation = {
   },
   reviews: {
     title: "Reviews",
+    subtitle: "Recognition from critics and the press",
+    description:
+      "Specialized magazines and prominent figures have highlighted the trajectory and unique character of her work.",
     quotes: [
       {
         text: "A versatile painter in her work, her paintings adapt to each environment and style, giving a highly personal and inimitable touch.",
@@ -75,8 +81,8 @@ export const en: BusinessTranslation = {
   },
   contact: {
     title: "Contact",
-    description:
-      "Want to know more or request a personalized artwork? Get in touch:",
+    subtitle: "Want to learn more or request a personalized artwork?",
+    description: "Get in touch",
     phone: "(+34) 645 33 60 66",
     email: "info@monicacuen.com",
     formNote: "Contact form available for inquiries and commissions.",

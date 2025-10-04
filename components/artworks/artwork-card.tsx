@@ -5,18 +5,30 @@ import { SupportedLanguage } from "@/translations/types";
 import Image from "next/image";
 import { Badge } from "../ui/badge";
 import { SmallTypo } from "../typography/TypographyComponents";
+import { cn } from "@/lib/utils";
 
 interface ArtworkCardProps {
   artwork: ArtworkDocumentWithImage;
   lang: SupportedLanguage;
   priority?: boolean;
+  className?: string;
 }
 
-const ArtworkCard = ({ priority, artwork, lang }: ArtworkCardProps) => {
+const ArtworkCard = ({
+  priority,
+  artwork,
+  lang,
+  className,
+}: ArtworkCardProps) => {
   const linkHref = `/${lang}/artworks/${artwork._id}`;
 
   return (
-    <Card className="overflow-hidden border-border/50 hover:shadow-xl hover:scale-[1.01] transition-all duration-200">
+    <Card
+      className={cn(
+        "overflow-hidden border-border/50 hover:shadow-xl hover:scale-[1.01] transition-all duration-200",
+        className,
+      )}
+    >
       <Link href={linkHref} className="group block">
         <div className="aspect-[4/3] relative overflow-hidden">
           <Image
