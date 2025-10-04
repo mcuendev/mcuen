@@ -68,7 +68,7 @@ export const en: BusinessTranslation = {
         {
           title: "Galleries & partnerships",
           description:
-            "Exhibition projects in galleries (including Barcelona) and collaborations with agents and editorial partners, including selections and projects in London and collaborations in Tokyo (e.g., Interculture Art Inc.).",
+            "Exhibition projects in galleries (including Barcelona) and collaborations with agents and editorial partners, including selections and projects in London and collaborations in Tokyo.",
         },
         {
           title: "Institutional events",
