@@ -57,7 +57,7 @@ const CTA = ({
         </CardDescription>
 
         {/* CTA BUTTONS */}
-        <div className="flex gap-4 mt-4">
+        <div className="flex flex-wrap gap-4 mt-4">
           <CardAction>
             <Button asChild variant="outline">
               <Link href={CTAHref}>{CTAText}</Link>

@@ -40,6 +40,7 @@ const CTAImagesCarousel = ({
                 className="rounded-md object-cover"
                 width={800}
                 height={600}
+                priority
               />
             </AspectRatio>
           </CarouselItem>
