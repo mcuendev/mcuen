@@ -6,18 +6,24 @@ import {
   DropdownMenuItem,
   DropdownMenuTrigger,
 } from "@/components/ui/dropdown-menu";
-import { supportedLanguages, languageNames } from "@/translations";
+import {
+  supportedLanguages,
+  languageNames,
+  getTranslations,
+} from "@/translations";
 import Image from "next/image";
 import { usePathname, useRouter } from "next/navigation";
 import { SupportedLanguage } from "@/translations/types";
 
 interface Props {
   currentLang: SupportedLanguage;
+  type?: "button" | "icon";
 }
 
-const LanguageSelector = ({ currentLang }: Props) => {
+const LanguageSelector = ({ currentLang, type = "icon" }: Props) => {
   const router = useRouter();
   const pathname = usePathname();
+  const t = getTranslations(currentLang);
 
   const handleLanguageChange = (newLang: SupportedLanguage) => {
     const segments = pathname.split("/");
@@ -28,8 +34,15 @@ const LanguageSelector = ({ currentLang }: Props) => {
   return (
     <DropdownMenu>
       <DropdownMenuTrigger asChild>
-        <Button variant={"secondary"} size={"icon"}>
-          <Languages className="w-4 h-4" />
+        <Button
+          variant={type === "icon" ? "secondary" : "default"}
+          size={type === "icon" ? "icon" : "default"}
+        >
+          {type === "icon" ? (
+            <Languages className="w-4 h-4" />
+          ) : (
+            t.ui.buttons.language
+          )}
         </Button>
         {/* <Button variant="secondary" size="icon">
           <Image
@@ -55,7 +68,7 @@ const LanguageSelector = ({ currentLang }: Props) => {
               height={16}
               className="rounded-full"
             />
-            <span className={currentLang === lang ? "font-medium" : ""}>
+            <span className={currentLang === lang ? "font-bold" : ""}>
               {languageNames[lang]}
             </span>
           </DropdownMenuItem>

@@ -95,12 +95,18 @@ export interface UITranslation {
     skipLink: string;
     exploreEnvironments: string;
     viewArtworks: string;
+    language: string;
   };
   common: {
     loading: string;
     noResults: string;
     noResultsDetails: string;
     notFound: string;
+  };
+  navigation: {
+    menu: {
+      description: string;
+    };
   };
   errors: {
     generic: string;

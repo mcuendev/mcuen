@@ -24,6 +24,7 @@ export const ui: UITranslation = {
     skipLink: "Salta al contenido",
     exploreEnvironments: "Explora Ambientes",
     viewArtworks: "Ver Obras",
+    language: "Idioma",
   },
   common: {
     loading: "Cargando...",
@@ -31,6 +32,12 @@ export const ui: UITranslation = {
     noResultsDetails:
       "No hay cuadros que coincidan con tus criterios de búsqueda actuales. Prueba a ajustar los filtros o los términos de búsqueda.",
     notFound: "Esta página no existe",
+  },
+  navigation: {
+    menu: {
+      description:
+        "Explora los distintos espacios disponibles en este sitio web.",
+    },
   },
   errors: {
     generic: "Se ha producido un error. Vuelve a intentarlo más tarde.",

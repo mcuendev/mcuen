@@ -24,6 +24,7 @@ export const ui: UITranslation = {
     skipLink: "Salta al contingut",
     exploreEnvironments: "Explora Ambients",
     viewArtworks: "Veure Obres",
+    language: "Idioma",
   },
   common: {
     loading: "Carregant...",
@@ -31,6 +32,12 @@ export const ui: UITranslation = {
     noResultsDetails:
       "No s'ha trobat cap quadre que coincideixi amb els criteris de cerca actuals. Prova d'ajustar els filtres o els termes de cerca.",
     notFound: "Aquesta pàgina no existeix",
+  },
+  navigation: {
+    menu: {
+      description:
+        "Explora els diferents espais disponibles en aquest lloc web.",
+    },
   },
   errors: {
     generic: "S'ha produït un error. Torna-ho a provar més tard.",

@@ -24,6 +24,7 @@ export const ui: UITranslation = {
     skipLink: "Skip to content",
     exploreEnvironments: "Explore Environments",
     viewArtworks: "View Artworks",
+    language: "Language",
   },
   common: {
     loading: "Loading...",
@@ -31,6 +32,11 @@ export const ui: UITranslation = {
     noResultsDetails:
       "No artworks match your current search criteria. Try adjusting your filters or search terms.",
     notFound: "This page does not exist",
+  },
+  navigation: {
+    menu: {
+      description: "Explore the different spaces available on this site.",
+    },
   },
   errors: {
     generic: "An error occurred. Please try again later.",

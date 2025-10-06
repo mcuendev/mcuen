@@ -1,6 +1,6 @@
 // /config/nav.ts
 import { BusinessTranslation, SupportedLanguage } from "@/translations/types";
-import { siteConfig } from "./site";
+import { siteConfig, type BaseRoute } from "./site";
 
 /* ---------------------------
     Types of nav items (source)
@@ -10,7 +10,7 @@ import { siteConfig } from "./site";
 export interface TranslatedNavItem {
   type: "translated";
   titleKey: keyof BusinessTranslation;
-  baseHref: import("./site").BaseRoute;
+  baseHref: BaseRoute;
   showAdmin?: boolean;
 }
 

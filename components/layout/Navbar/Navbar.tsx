@@ -4,22 +4,19 @@ import { getLocalizedNavItems } from "@/config/nav";
 import { siteConfig } from "@/config/site";
 import Link from "next/link";
 import { Button } from "../../ui/button";
-import {
-  LoginLink,
-  LogoutLink,
-  useKindeAuth,
-} from "@kinde-oss/kinde-auth-nextjs";
-import LanguageSelector from "./components/LanguageSelector";
 import { getTranslations } from "@/translations";
 import { HTMLAttributes } from "react";
 import { SupportedLanguage } from "@/translations/types";
+import DesktopNavMenu from "./components/DesktopNavMenu";
+import MobileNavMenu from "./components/MobileNavMenu";
+// import { useKindeAuth } from "@kinde-oss/kinde-auth-nextjs";
 
 interface NavbarProps extends HTMLAttributes<HTMLElement> {
   lang: SupportedLanguage;
 }
 
 const Navbar = ({ lang }: NavbarProps) => {
-  const { isAuthenticated } = useKindeAuth();
+  // const { isAuthenticated } = useKindeAuth();
 
   const t = getTranslations(lang);
   const localizedNavItems = getLocalizedNavItems(lang);
@@ -30,50 +27,18 @@ const Navbar = ({ lang }: NavbarProps) => {
         <Link href={`/${lang}`}>{siteConfig.name}</Link>
       </Button>
 
-      <div className="flex gap-4">
-        {localizedNavItems.map((item) => {
-          // Skip if it's an admin route and user is not authenticated
-          // or if it's a protected route and user is authenticated
-          if (
-            (!isAuthenticated && item.showAdmin) ||
-            (isAuthenticated && item.showAdmin === false)
-          ) {
-            return null;
-          }
+      <DesktopNavMenu
+        // isAuthenticated={isAuthenticated}
+        lang={lang}
+        localizedNavItems={localizedNavItems}
+        t={t}
+      />
 
-          return (
-            <Button
-              key={item.type === "translated" ? item.titleKey : item.title}
-              className="font-serif"
-              variant="ghost"
-              asChild
-            >
-              <Link
-                href={
-                  item.type === "translated"
-                    ? siteConfig.getLocalizedPath(item.baseHref, lang)
-                    : item.href
-                }
-              >
-                {item.type === "translated"
-                  ? t[item.titleKey].title
-                  : item.title}
-              </Link>
-            </Button>
-          );
-        })}
-
-        {isAuthenticated ? (
-          <Button asChild>
-            <LogoutLink>Logout</LogoutLink>
-          </Button>
-        ) : (
-          <Button asChild>
-            <LoginLink>Login</LoginLink>
-          </Button>
-        )}
-        <LanguageSelector currentLang={lang} />
-      </div>
+      <MobileNavMenu
+        // isAuthenticated={isAuthenticated}
+        lang={lang}
+        localizedNavItems={localizedNavItems}
+      />
     </nav>
   );
 };
