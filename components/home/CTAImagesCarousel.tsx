@@ -27,7 +27,7 @@ const CTAImagesCarousel = ({
   return (
     <Carousel
       plugins={[plugin.current]}
-      opts={{ align: "center" }}
+      opts={{ align: "center", loop: true }}
       className="w-10/12 mx-auto max-w-2xl translate-y-12 rounded-md overflow-hidden shadow-2xl"
     >
       <CarouselContent>

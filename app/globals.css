@@ -184,6 +184,31 @@
   --shadow-2xl: var(--shadow-2xl);
 }
 
+.fade-y {
+  /* Lo importante */
+  -webkit-mask-image: linear-gradient(
+    to bottom,
+    transparent,
+    /* parte superior transparente */ black 20%,
+    /* visible progresivamente */ black 80%,
+    /* visible casi todo el centro */ transparent
+      /* parte inferior transparente */
+  );
+  mask-image: linear-gradient(
+    to bottom,
+    transparent,
+    black 20%,
+    black 80%,
+    transparent
+  );
+
+  /* Asegura que afecte al contenido */
+  -webkit-mask-repeat: no-repeat;
+  mask-repeat: no-repeat;
+  -webkit-mask-size: 100% 100%;
+  mask-size: 100% 100%;
+}
+
 .frame {
   position: relative;
   border-radius: 6px;
