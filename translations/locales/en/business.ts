@@ -115,6 +115,7 @@ export const en: BusinessTranslation = {
     title: "Contact",
     subtitle: "Want to learn more or request a personalized artwork?",
     description: "Get in touch",
+    cardNote: "Contact me for custom paintings or commissioned artworks.",
     phone: "(+34) 645 33 60 66",
     email: "info@monicacuen.com",
     formNote: "Contact form available for inquiries and commissions.",

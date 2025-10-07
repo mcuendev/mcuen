@@ -115,6 +115,7 @@ export const es: BusinessTranslation = {
     title: "Contacto",
     subtitle: "¿Quieres saber más o solicitar una obra personalizada?",
     description: "Ponte en contacto",
+    cardNote: "Contáctame para cuadros personalizados u obras a medida.",
     phone: "(+34) 645 33 60 66",
     email: "info@monicacuen.com",
     formNote: "Formulario de contacto disponible para consultas y encargos.",

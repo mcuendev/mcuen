@@ -61,6 +61,7 @@ export interface BusinessTranslation {
     title: string;
     subtitle: string;
     description: string;
+    cardNote: string;
     phone: string;
     email: string;
     formNote: string;

@@ -114,6 +114,7 @@ export const ca: BusinessTranslation = {
     title: "Contacte",
     subtitle: "Vols saber-ne més o sol·licitar una obra personalitzada?",
     description: "Posa't en contacte",
+    cardNote: "Contacta'm per a quadres personalitzats o obres a mida.",
     phone: "(+34) 645 33 60 66",
     email: "info@monicacuen.com",
     formNote: "Formulari de contacte disponible per a consultes i encàrrecs.",
