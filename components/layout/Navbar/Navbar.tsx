@@ -9,6 +9,7 @@ import { SupportedLanguage } from "@/translations/types";
 import DesktopNavMenu from "./components/DesktopNavMenu";
 import MobileNavMenu from "./components/MobileNavMenu";
 import Image from "next/image";
+import { siteConfig } from "@/config/site";
 // import { useKindeAuth } from "@kinde-oss/kinde-auth-nextjs";
 
 interface NavbarProps extends HTMLAttributes<HTMLElement> {
@@ -27,7 +28,7 @@ const Navbar = ({ lang }: NavbarProps) => {
         <Link href={`/${lang}`}>
           <Image
             src={"/logo/logo-black-transparent.webp"}
-            alt="TODO"
+            alt={`${siteConfig.name} logo`}
             width={90}
             height={60}
             priority
