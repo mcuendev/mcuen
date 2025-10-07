@@ -25,6 +25,7 @@ import { SupportedLanguage } from "@/translations/types";
 import { NavItemWithHref } from "@/config/nav";
 import { usePathname } from "next/navigation";
 import { cn } from "@/lib/utils";
+import Image from "next/image";
 
 interface MobileNavMenuProps {
   lang: SupportedLanguage;
@@ -50,7 +51,19 @@ const MobileNavMenu = ({
         </SheetTrigger>
         <SheetContent>
           <SheetHeader>
-            <SheetTitle>{siteConfig.name}</SheetTitle>
+            <SheetTitle>
+              <Button asChild variant={"homeNavLink"} className="p-0">
+                <Link href={`/${lang}`}>
+                  <Image
+                    src={"/logo/logo-black-transparent.webp"}
+                    alt="TODO"
+                    width={90}
+                    height={60}
+                    priority
+                  />
+                </Link>
+              </Button>
+            </SheetTitle>
             <SheetDescription className="text-pretty">
               {t.ui.navigation.menu.description}
             </SheetDescription>

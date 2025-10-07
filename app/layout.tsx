@@ -25,9 +25,6 @@ const playfair = Playfair_Display({
 export const metadata: Metadata = {
   title: siteConfig.name,
   description: siteConfig.description,
-  icons: {
-    icon: "/convex.svg",
-  },
 };
 
 export default async function RootLayout({
