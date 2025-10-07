@@ -37,9 +37,9 @@ const Contact = async ({ params }: ContactProps) => {
         className="max-w-md h-56 mx-auto sm:mx-0 shadow-sm hover:shadow-2xl hover:scale-[1.02] transition-all duration-300"
         variant={"muted"}
       >
-        <ItemHeader className="gap-4">
+        <ItemHeader className="gap-2 sm:gap-4">
           <ItemMedia>
-            <Avatar className="size-18">
+            <Avatar className="size-16 sm:size-18">
               <AvatarImage
                 src={"/assets/mcuen-profile.webp"}
                 className="object-cover object-top"
