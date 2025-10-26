@@ -34,7 +34,7 @@ const Contact = async ({ params }: ContactProps) => {
       />
 
       <Item
-        className="max-w-md h-56 mx-auto sm:mx-0 shadow-sm hover:shadow-2xl hover:scale-[1.02] transition-all duration-300"
+        className="max-w-md h-56 mx-auto sm:mx-0 shadow-sm bg-secondary hover:shadow-2xl hover:scale-[1.02] transition-all duration-300"
         variant={"muted"}
       >
         <ItemHeader className="gap-2 sm:gap-4">

@@ -54,7 +54,7 @@ const ArtworkDetailPage = async ({ params }: ArtworkDetailPageProps) => {
             src={artwork.fileUrl || "/placeholder.svg"}
             alt={artwork.title}
             fill
-            className="object-cover"
+            className="object-contain"
             sizes="(max-width: 1024px) 100vw, 50vw"
             priority
           />

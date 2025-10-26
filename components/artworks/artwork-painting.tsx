@@ -30,8 +30,7 @@ const ArtworkPainting = ({
                 src={artwork.fileUrl!}
                 alt={artwork.title}
                 className="object-cover w-full"
-                width={800}
-                height={600}
+                fill
                 priority={priority}
               />
             </AspectRatio>
@@ -40,7 +39,7 @@ const ArtworkPainting = ({
 
         <HoverCardContent
           align="center"
-          side="bottom"
+          side="right"
           className="max-w-xs xl:max-w-sm 2xl:max-w-md z-10 m-4 shadow-2xl p-4 rounded-lg border backdrop-blur-sm bg-white/20"
         >
           <ArtworkCard artwork={artwork} lang={lang} className="shadow-none" />
