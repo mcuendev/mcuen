@@ -5,6 +5,7 @@ import { Carousel, CarouselContent, CarouselItem } from "../ui/carousel";
 import { useRef } from "react";
 import { AspectRatio } from "../ui/aspect-ratio";
 import Image from "next/image";
+import { cn } from "@/lib/utils";
 
 export interface CarouselItemType {
   title: string;
@@ -14,11 +15,13 @@ export interface CarouselItemType {
 interface ArtworkCTACarouselProps {
   items: CarouselItemType[];
   delay?: number;
+  className?: string;
 }
 
 const CTAImagesCarousel = ({
   items,
   delay = 3000,
+  className,
 }: ArtworkCTACarouselProps) => {
   const plugin = useRef(
     Autoplay({ delay, stopOnInteraction: true, stopOnMouseEnter: true }),
@@ -28,7 +31,10 @@ const CTAImagesCarousel = ({
     <Carousel
       plugins={[plugin.current]}
       opts={{ align: "center", loop: true }}
-      className="w-10/12 mx-auto max-w-2xl translate-y-12 rounded-md overflow-hidden shadow-2xl"
+      className={cn(
+        "w-10/12 mx-auto max-w-2xl translate-y-7 rounded-md overflow-hidden shadow-2xl",
+        className,
+      )}
     >
       <CarouselContent>
         {items.map((item, index) => (

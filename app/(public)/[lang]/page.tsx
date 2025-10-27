@@ -1,5 +1,6 @@
 import CTA from "@/components/home/CTA";
 import PageHeader from "@/components/layout/PageHeader";
+import { environments } from "@/data/environments";
 import { artworkDataClient } from "@/lib/artwork-data-client";
 import {
   LangParams,
@@ -54,9 +55,9 @@ const Home = async ({ params }: HomeProps) => {
             CTAText={t.ui.buttons.exploreEnvironments}
             CTAHref={`/${lang}/environments`}
             contactText={t.ui.buttons.contactArtist}
-            items={highlightedArtworks.map((art) => ({
-              image: art.fileUrl!,
-              title: art.title,
+            items={environments.map((env) => ({
+              image: env.fileUrl!,
+              title: env.id,
             }))}
             carouselDelay={2800}
           />
