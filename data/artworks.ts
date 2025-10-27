@@ -1,7 +1,7 @@
 import { Id } from "@/convex/_generated/dataModel";
 import { ArtworkDocumentWithImage } from "@/convex/artworks/types";
 
-export const mockArtworks: ArtworkDocumentWithImage[] = [
+export const artworks: ArtworkDocumentWithImage[] = [
   {
     _id: "1" as Id<"artworks">,
     title: "Ethereal Landscapes",
@@ -267,5 +267,3 @@ export const mockArtworks: ArtworkDocumentWithImage[] = [
     fileId: "" as Id<"_storage">,
   },
 ];
-
-export const artworks = mockArtworks;

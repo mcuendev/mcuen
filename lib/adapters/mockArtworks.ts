@@ -1,10 +1,10 @@
 import type { ArtworksClient } from "@/lib/adapters/types";
-import { mockArtworks } from "@/data/artworks";
+import { artworks } from "@/data/artworks";
 import { ArtworkDocumentWithImage } from "@/convex/artworks/types";
 import { Id } from "@/convex/_generated/dataModel";
 
 class MockArtworksClient implements ArtworksClient {
-  private artworks: ArtworkDocumentWithImage[] = [...mockArtworks];
+  private artworks: ArtworkDocumentWithImage[] = [...artworks];
 
   async getAll() {
     return [...this.artworks];
