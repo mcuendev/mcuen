@@ -4,7 +4,7 @@ import { ImageIcon } from "lucide-react";
 import { H4Typo, SmallTypo } from "../typography/TypographyComponents";
 import { SupportedLanguage } from "@/translations/types";
 import { getTranslations } from "@/translations";
-import ArtworkPainting from "./artwork-painting";
+// import ArtworkPainting from "./artwork-painting";
 import ArtworkCard from "./artwork-card";
 
 interface ArtworkGridProps {
@@ -41,16 +41,16 @@ const ArtworkGrid = ({ lang, artworks, className }: ArtworkGridProps) => {
             artwork={artwork}
             lang={lang}
             priority={i < 8}
-            className="block lg:hidden"
+            // className="block lg:hidden"
           />
 
           {/* DESKTOP */}
-          <ArtworkPainting
+          {/* <ArtworkPainting
             artwork={artwork}
             lang={lang}
             priority={i < 8}
             className="hidden lg:block"
-          />
+          /> */}
         </div>
       ))}
     </div>

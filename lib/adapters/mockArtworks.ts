@@ -18,22 +18,13 @@ class MockArtworksClient implements ArtworksClient {
     return this.artworks.find((artwork) => artwork._id === id) || null;
   }
 
-  async search(query: string, collection?: string) {
+  async search(query: string) {
     let filtered = [...this.artworks];
-
-    if (collection && collection !== "all") {
-      filtered = filtered.filter(
-        (artwork) => artwork.collection === collection,
-      );
-    }
 
     if (query.trim()) {
       const normalizedQuery = query.toLowerCase().trim();
-      filtered = filtered.filter(
-        (artwork) =>
-          artwork.title.toLowerCase().includes(normalizedQuery) ||
-          artwork.description.toLowerCase().includes(normalizedQuery) ||
-          artwork.collection.toLowerCase().includes(normalizedQuery),
+      filtered = filtered.filter((artwork) =>
+        artwork.title.toLowerCase().includes(normalizedQuery),
       );
     }
 

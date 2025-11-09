@@ -4,7 +4,6 @@ import Link from "next/link";
 import { SupportedLanguage } from "@/translations/types";
 import Image from "next/image";
 import { Badge } from "../ui/badge";
-import { SmallTypo } from "../typography/TypographyComponents";
 import { cn } from "@/lib/utils";
 
 interface ArtworkCardProps {
@@ -42,23 +41,13 @@ const ArtworkCard = ({
         </div>
       </Link>
       <CardContent className="p-4 space-y-2">
-        <div className="flex items-center justify-between gap-2">
+        <div className="flex flex-col items-center gap-4">
           <Link href={linkHref}>
-            <h4 className="font-serif text-lg font-medium text-foreground line-clamp-1 text-balance hover:text-primary transition-colors">
+            <h4 className="font-serif text-lg lg:text-xl font-medium text-foreground line-clamp-1 text-balance hover:text-primary transition-colors">
               {artwork.title}
             </h4>
           </Link>
-          <Badge variant={"secondary"}>{artwork.collection}</Badge>
-        </div>
-        <p className="text-sm text-muted-foreground line-clamp-2 text-pretty leading-relaxed">
-          {artwork.description}
-        </p>
-        <div>
-          {artwork.year && (
-            <SmallTypo className="font-mono text-muted-foreground">
-              {artwork.year}
-            </SmallTypo>
-          )}
+          <Badge variant={"secondary"}>{artwork.technique}</Badge>
         </div>
       </CardContent>
     </Card>

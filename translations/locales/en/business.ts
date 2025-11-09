@@ -20,13 +20,16 @@ export const en: BusinessTranslation = {
   },
   artworks: {
     title: "Artworks",
-    subtitle: "Discover Mónica Cuén's collection of paintings",
+    subtitle: "Each artwork, a story made to measure",
     description:
-      "Characterized by their versatility and ability to integrate into different styles and spaces.",
+      "These pieces are part of commissioned projects. Mònica Cuen creates each new artwork as a personalized piece, tailored to the client’s requests.",
+    note: "Artworks can be created in various sizes, ranging from 50 × 50 cm up to 200 × 200 cm, to perfectly suit each client’s space and vision.",
     layout: {
       gallery: "Gallery of 24 featured artworks.",
-      adaptable: "Adaptable and personalized works for each client.",
+      adaptable: "Adapted and personalized works for each client.",
     },
+    artworkDescription:
+      "Original artwork by Mònica Cuen, created with mixed media. A unique custom piece made to match the client’s requested colors, size, and expression.",
   },
   career: {
     title: "Career",

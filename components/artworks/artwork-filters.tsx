@@ -5,29 +5,22 @@ import { Search } from "lucide-react";
 import { useRouter, useSearchParams } from "next/navigation";
 import { useDebouncedCallback } from "use-debounce";
 import { Input } from "../ui/input";
-import {
-  Select,
-  SelectContent,
-  SelectItem,
-  SelectTrigger,
-  SelectValue,
-} from "../ui/select";
+// import {
+//   Select,
+//   SelectContent,
+//   SelectItem,
+//   SelectTrigger,
+//   SelectValue,
+// } from "../ui/select";
 import { getTranslations } from "@/translations";
 import { useMemo } from "react";
 
 interface ArtworkFiltersProps {
-  collections: string[];
   searchValue: string;
-  collectionValue: string;
   lang: SupportedLanguage;
 }
 
-const ArtworkFilters = ({
-  collections,
-  searchValue,
-  collectionValue,
-  lang,
-}: ArtworkFiltersProps) => {
+const ArtworkFilters = ({ searchValue, lang }: ArtworkFiltersProps) => {
   const router = useRouter();
   const searchParams = useSearchParams();
 
@@ -43,15 +36,15 @@ const ArtworkFilters = ({
     router.push(`/${lang}/artworks?${params.toString()}`);
   }, 300);
 
-  const handleCollectionChange = (collection: string) => {
-    const params = new URLSearchParams(searchParams);
-    if (collection && collection !== "all") {
-      params.set("collection", collection);
-    } else {
-      params.delete("collection");
-    }
-    router.push(`/${lang}/artworks?${params.toString()}`);
-  };
+  // const handleCollectionChange = (collection: string) => {
+  //   const params = new URLSearchParams(searchParams);
+  //   if (collection && collection !== "all") {
+  //     params.set("collection", collection);
+  //   } else {
+  //     params.delete("collection");
+  //   }
+  //   router.push(`/${lang}/artworks?${params.toString()}`);
+  // };
 
   return (
     <div className="flex flex-col sm:flex-row sm:justify-between gap-4 mb-8">
@@ -65,7 +58,7 @@ const ArtworkFilters = ({
           aria-label={t.ui.artworks.filters.ariaSearch}
         />
       </div>
-      <div className="sm:max-w-fit">
+      {/* <div className="sm:max-w-fit">
         <Select value={collectionValue} onValueChange={handleCollectionChange}>
           <SelectTrigger className="bg-input border-border/50 focus:border-ring">
             <SelectValue placeholder={t.ui.artworks.filters.allCollections} />
@@ -81,7 +74,7 @@ const ArtworkFilters = ({
             ))}
           </SelectContent>
         </Select>
-      </div>
+      </div> */}
     </div>
   );
 };

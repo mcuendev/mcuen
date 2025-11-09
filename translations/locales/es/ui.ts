@@ -4,6 +4,7 @@ export const ui: UITranslation = {
   artworks: {
     labels: {
       collection: "Colección",
+      technique: "Técnica",
       year: "Año",
     },
     sections: {

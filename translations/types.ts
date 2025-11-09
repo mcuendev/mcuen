@@ -23,10 +23,12 @@ export interface BusinessTranslation {
     title: string;
     subtitle: string;
     description: string;
+    note: string;
     layout: {
       gallery: string;
       adaptable: string;
     };
+    artworkDescription: string;
   };
   career: {
     title: string;
@@ -76,6 +78,7 @@ export interface UITranslation {
   artworks: {
     labels: {
       collection: string;
+      technique: string;
       year: string;
     };
     sections: {

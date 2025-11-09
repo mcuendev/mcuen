@@ -20,13 +20,16 @@ export const es: BusinessTranslation = {
   },
   artworks: {
     title: "Obras",
-    subtitle: "Descubre la colección de cuadros de Mónica Cuén",
+    subtitle: "Cada obra, una historia hecha a medida",
     description:
-      "Caracterizados por su versatilidad y capacidad de integrarse en diferentes estilos y espacios.",
+      "Estas piezas forman parte de proyectos realizados por encargo. Mònica Cuen crea cada nueva obra de manera personalizada, según las peticiones del cliente.",
+    note: "Las obras pueden realizarse en distintos formatos, desde 50 × 50 cm hasta 200 × 200 cm, adaptándose al espacio y a la visión de cada cliente.",
     layout: {
       gallery: "Galería de 24 obras destacadas.",
-      adaptable: "Obras adaptables y personalizadas para cada cliente.",
+      adaptable: "Obras adaptadas y personalizadas para cada cliente.",
     },
+    artworkDescription:
+      "Obra original de Mònica Cuen, creada con técnica mixta. Pieza única realizada a medida, según colores, tamaño y expresión solicitados por el cliente.",
   },
   career: {
     title: "Trayectoria",

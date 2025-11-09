@@ -18,7 +18,7 @@ import {
 import { siteConfig } from "@/config/site";
 import { MenuIcon } from "lucide-react";
 import Link from "next/link";
-import { Fragment } from "react";
+import { Fragment, useEffect, useState } from "react";
 import LanguageSelector from "./LanguageSelector";
 import { getTranslations } from "@/translations";
 import { SupportedLanguage } from "@/translations/types";
@@ -39,11 +39,16 @@ const MobileNavMenu = ({
   isAuthenticated,
 }: MobileNavMenuProps) => {
   const pathname = usePathname();
+  const [open, setOpen] = useState(false);
   const t = getTranslations(lang);
+
+  useEffect(() => {
+    setOpen(false);
+  }, [pathname]);
 
   return (
     <div className="flex lg:hidden">
-      <Sheet>
+      <Sheet open={open} onOpenChange={setOpen}>
         <SheetTrigger asChild>
           <Button variant={"ghost"} size={"icon"}>
             <MenuIcon />

@@ -25,13 +25,17 @@ const ArtworkDetailPage = async ({ params }: ArtworkDetailPageProps) => {
 
   if (!artwork) notFound();
 
-  const relatedArtworks = await artworkDataClient.search(
-    "",
-    artwork.collection,
-  );
-  const filteredRelated = relatedArtworks
-    .filter((art) => art._id !== artwork._id)
-    .slice(0, 3);
+  const relatedArtworks = await artworkDataClient.search("");
+  const artworkIndex = relatedArtworks.findIndex((a) => a._id === artwork._id);
+
+  let filteredRelated;
+  if (artworkIndex !== -1 && relatedArtworks.length > artworkIndex + 3) {
+    filteredRelated = relatedArtworks.slice(artworkIndex + 1, artworkIndex + 4);
+  } else {
+    filteredRelated = relatedArtworks
+      .filter((art) => art._id !== artwork._id)
+      .slice(0, 3);
+  }
 
   return (
     <>
@@ -67,42 +71,23 @@ const ArtworkDetailPage = async ({ params }: ArtworkDetailPageProps) => {
                 {artwork.title}
               </h2>
               <Badge variant={"secondary"} className="shrink-0">
-                {artwork.collection}
+                {artwork.technique}
               </Badge>
             </div>
-
-            {artwork.year && (
-              <p className="text-lg text-muted-foreground font-mono">
-                {artwork.year}
-              </p>
-            )}
           </div>
 
           <PTypo className="text-lg text-foreground text-pretty">
-            {artwork.description}
+            {artwork.description ?? t.artworks.artworkDescription}
           </PTypo>
 
           <div className="pt-6 border-t border-border">
             <div className="grid grid-cols-2 gap-4 text-sm">
               <div>
                 <dt className="font-medium text-muted-foreground mb-1">
-                  {t.ui.artworks.labels.collection}
+                  {t.ui.artworks.labels.technique}
                 </dt>
-                {/* TODO: make it a link to the related collection */}
-                <Link
-                  href={`/${lang}/artworks?collection=${artwork.collection}`}
-                >
-                  <dd className="text-foreground">{artwork.collection}</dd>
-                </Link>
+                <dd className="text-foreground">{artwork.technique}</dd>
               </div>
-              {artwork.year && (
-                <div>
-                  <dt className="font-medium text-muted-foreground mb-1">
-                    {t.ui.artworks.labels.year}
-                  </dt>
-                  <dd className="text-foreground font-mono">{artwork.year}</dd>
-                </div>
-              )}
             </div>
           </div>
 
@@ -142,7 +127,7 @@ const ArtworkDetailPage = async ({ params }: ArtworkDetailPageProps) => {
                   {realtedArt.title}
                 </h4>
                 <p className="text-sm text-muted-foreground line-clamp-2 mt-1">
-                  {realtedArt.description}
+                  {realtedArt.description ?? t.artworks.artworkDescription}
                 </p>
               </Link>
             ))}

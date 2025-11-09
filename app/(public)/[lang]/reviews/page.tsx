@@ -8,6 +8,7 @@ import {
   CarouselNext,
   CarouselPrevious,
 } from "@/components/ui/carousel";
+import { siteConfig } from "@/config/site";
 import {
   LangParams,
   makeGenerateStaticParamsForLanguages,
@@ -62,12 +63,15 @@ const Reviews = async ({ params }: ReviewsProps) => {
         </CarouselContent>
         <CarouselPrevious className="hidden md:flex" />
         <CarouselNext className="hidden md:flex" />
-        <AnimatedIcon
-          src="/icons/animated-icons/slide.gif"
-          className="absolute top-12 left-8 rotate-90"
-          opacity="70"
-          durationMs={3000}
-        />
+
+        {siteConfig.animatedIconOnReviews && (
+          <AnimatedIcon
+            src="/icons/animated-icons/slide.gif"
+            className="absolute top-12 left-8 rotate-90"
+            opacity="70"
+            durationMs={3000}
+          />
+        )}
       </Carousel>
 
       <Carousel

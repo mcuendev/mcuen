@@ -59,7 +59,8 @@ export const generateMetadata = async ({
 
   return {
     title: `${artwork.title} | Monica Cuén`,
-    description: artwork.description.slice(0, 160),
+    description:
+      artwork.description?.slice(0, 160) ?? t.artworks.artworkDescription,
     alternates: {
       canonical,
       languages: supportedLanguages.reduce<Record<string, string>>((acc, l) => {
@@ -69,14 +70,16 @@ export const generateMetadata = async ({
     },
     openGraph: {
       title: `${artwork.title} | Monica Cuén`,
-      description: artwork.description.slice(0, 160),
+      description:
+        artwork.description?.slice(0, 160) ?? t.artworks.artworkDescription,
       url: canonical,
       images: [{ url: artwork.fileUrl!, alt: artwork.title }],
     },
     twitter: {
       card: "summary_large_image",
       title: `${artwork.title} | Monica Cuén`,
-      description: artwork.description.slice(0, 160),
+      description:
+        artwork.description?.slice(0, 160) ?? t.artworks.artworkDescription,
       images: [artwork.fileUrl!],
     },
   };

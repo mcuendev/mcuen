@@ -31,10 +31,11 @@ const Contact = async ({ params }: ContactProps) => {
       <PageHeader
         title={t.contact.subtitle}
         descritpion={t.contact.description}
+        note={t.artworks.note}
       />
 
       <Item
-        className="max-w-md h-56 mx-auto sm:mx-0 shadow-sm bg-secondary hover:shadow-2xl hover:scale-[1.02] transition-all duration-300"
+        className="my-8 max-w-md h-56 mx-auto sm:mx-0 shadow-sm bg-secondary hover:shadow-2xl hover:scale-[1.02] transition-all duration-300"
         variant={"muted"}
       >
         <ItemHeader className="gap-2 sm:gap-4">
