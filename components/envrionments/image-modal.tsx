@@ -23,6 +23,7 @@ export function ImageDialog({ src, alt }: { src: string; alt?: string }) {
             alt={alt || "Preview"}
             width={400}
             height={300}
+            priority
             className="rounded-lg cursor-pointer transition hover:opacity-90 h-full w-full object-contain"
           />
         </button>
