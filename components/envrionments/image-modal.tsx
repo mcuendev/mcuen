@@ -1,32 +1,54 @@
 "use client";
 
+import {
+  Dialog,
+  DialogContent,
+  DialogTrigger,
+  DialogTitle,
+  DialogClose,
+} from "@/components/ui/dialog";
+import { cn } from "@/lib/utils";
 import Image from "next/image";
-import { Dialog, DialogContent, DialogTrigger } from "@/components/ui/dialog";
-import { DialogTitle } from "@radix-ui/react-dialog";
+import { Button } from "../ui/button";
+import { X } from "lucide-react";
 
 export function ImageDialog({ src, alt }: { src: string; alt?: string }) {
   return (
     <Dialog>
-      {/* La imagen es el botón de apertura */}
+      {/* Miniatura */}
       <DialogTrigger asChild>
-        <button className="focus:outline-none">
+        <button className="focus:outline-none h-full w-full flex items-center justify-center">
           <Image
             src={src}
             alt={alt || "Preview"}
             width={400}
             height={300}
-            className="rounded-lg cursor-pointer transition hover:opacity-90"
+            className="rounded-lg cursor-pointer transition hover:opacity-90 h-full w-full object-contain"
           />
         </button>
       </DialogTrigger>
 
-      {/* Imagen a pantalla completa */}
+      {/* Diálogo de imagen completa */}
       <DialogContent
-        className="max-w-none w-screen h-screen border-none shadow-none p-0 bg-transparent flex items-center justify-center"
+        className={cn(
+          "h-full max-h-[95vh] max-w-[95vw]",
+          "bg-transparent border-none shadow-none pointer-events-none",
+        )}
         showCloseButton={false}
       >
         <DialogTitle className="hidden">{alt}</DialogTitle>
-        <div className="relative w-full h-full flex items-center justify-center">
+        <DialogClose asChild>
+          <Button
+            className="absolute right-0 top-0 z-50"
+            variant={"secondary"}
+            size={"icon"}
+          >
+            <X />
+          </Button>
+        </DialogClose>
+
+        {/* Contenedor de imagen con tamaño visible */}
+        <div className="w-full h-full">
           <Image
             src={src}
             alt={alt || "Full view"}
